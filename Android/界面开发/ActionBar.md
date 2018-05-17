@@ -35,7 +35,7 @@
 </style>
 ```
 
-colorPrimary 表示标题栏 ActionBar 的颜色；colorPrimaryDark 表示状态栏的颜色； colorAccent 表示输入框，按钮等被选中时的颜色； textColorPrimary 表示标题栏（ActionBar 或者 ToolBar）中字体的颜色。接下来，在你需要引入 ToolBar 的布局文件中引入 ToolBar：
+colorPrimary 表示标题栏 ActionBar 的颜色；colorPrimaryDark 表示状态栏的颜色； colorAccent 表示输入框，按钮等被选中时的颜色； textColorPrimary 表示标题栏(ActionBar 或者 ToolBar)中字体的颜色。接下来，在你需要引入 ToolBar 的布局文件中引入 ToolBar：
 
 ```xml
 <android.support.v7.widget.Toolbar

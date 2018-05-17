@@ -29,9 +29,9 @@ UITableViewDelegate需要实现的方法为：
 | ---------------------------------------- | ------- | ---------------------------------------- | 
 | tableView:viewForHeaderInSection:        | UIView* | 为节头准备自定义视图，iOS 6之后可以使用UITableViewHeaderFooterView | 
 | tableView:viewForFooterInSection:        | UIView* | 为节脚准备自定义视图，iOS 6之后可以使用UITableViewHeaderFooterView | 
-| tableView:didEndDisplayingHeaderView:forSection: | void    | 该方法在节头从屏幕中消失时触发（iOS 6之后的方法）              | 
-| tableView:didEndDisplayingFooterView:forSection: | void    | 当节脚从屏幕中消失时触发（iOS 6之后的方法）                 | 
-| tableView:didEndDisplayingCell:forRowAtIndexPath: | void    | 当单元格从屏幕中消失时触发（iOS 6之后的方法）                | 
+| tableView:didEndDisplayingHeaderView:forSection: | void    | 该方法在节头从屏幕中消失时触发(iOS 6之后的方法)              | 
+| tableView:didEndDisplayingFooterView:forSection: | void    | 当节脚从屏幕中消失时触发(iOS 6之后的方法)                 | 
+| tableView:didEndDisplayingCell:forRowAtIndexPath: | void    | 当单元格从屏幕中消失时触发(iOS 6之后的方法)                | 
 | tableView:didSelectRowAtIndexPath:       | void    | 响应选择表视图单元格时调用的方法                         | 
 
 ## Simple UITableView

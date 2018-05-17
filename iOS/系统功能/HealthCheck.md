@@ -19,7 +19,7 @@ if(NSClassFromString(@"HKHealthStore") && [HKHealthStore isHealthDataAvailable])
 
 ## Request authorization(请求授权)
 
-由于HealthKit存储了大量的用户敏感信息，App如果需要访问HealthKit中的数据，首先需要请求用户权限。权限分为读取与读写权限（苹果将读写权限称为share）。请求权限还是比较简单的，可以直接使用[`requestAuthorizationToShareTypes: readTypes: completion:`](https://developer.apple.com/library/ios/DOCUMENTATION/HealthKit/Reference/HKHealthStore_Class/index.html#//apple_ref/occ/instm/HKHealthStore/requestAuthorizationToShareTypes:readTypes:completion:) 方法。
+由于HealthKit存储了大量的用户敏感信息，App如果需要访问HealthKit中的数据，首先需要请求用户权限。权限分为读取与读写权限(苹果将读写权限称为share)。请求权限还是比较简单的，可以直接使用[`requestAuthorizationToShareTypes: readTypes: completion:`](https://developer.apple.com/library/ios/DOCUMENTATION/HealthKit/Reference/HKHealthStore_Class/index.html#//apple_ref/occ/instm/HKHealthStore/requestAuthorizationToShareTypes:readTypes:completion:) 方法。
 
 ``` objective-c
 HKHealthStore *healthStore = [[HKHealthStore alloc] init];

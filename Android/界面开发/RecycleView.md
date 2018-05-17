@@ -32,7 +32,7 @@
 
 # List
 
-首先要用这个控件，你需要在gradle文件中添加包的引用（配合官方CardView使用）
+首先要用这个控件，你需要在gradle文件中添加包的引用(配合官方CardView使用)
 
 ``` gradle
 compile 'com.android.support:cardview-v7:21.0.3'

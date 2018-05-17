@@ -6,13 +6,13 @@
 
 ## Installation
 
-引入 Cordova 主要包含三个步骤(怎么感觉有点像把大象塞到冰箱)：（1）在 Podfile 中加入依赖项可以使用`pod search Cordova`命令来搜索可用的 Cordova 版本，笔者是使用的 4.0.1 版本：
+引入 Cordova 主要包含三个步骤(怎么感觉有点像把大象塞到冰箱)：(1)在 Podfile 中加入依赖项可以使用`pod search Cordova`命令来搜索可用的 Cordova 版本，笔者是使用的 4.0.1 版本：
 
 ```
 pod 'Cordova', '~> 4.0.1' # 支持Cordova WebView容器
 ```
 
-添加完毕然后使用`pod install`命令下载即可。（2）添加 config.xml config.xml 即是主要的配置文件，在 iOS 中其需要放置到`/AppName/config.xml`这种样式。笔者的 config.xml 文件的示范为：
+添加完毕然后使用`pod install`命令下载即可。(2)添加 config.xml config.xml 即是主要的配置文件，在 iOS 中其需要放置到`/AppName/config.xml`这种样式。笔者的 config.xml 文件的示范为：
 
 ```
 <?xml version='1.0' encoding='utf-8'?>
@@ -51,25 +51,25 @@ pod 'Cordova', '~> 4.0.1' # 支持Cordova WebView容器
 </widget>
 ```
 
-（3）添加 www 文件夹一般来说会把静态资源文件放置到 www 目录下，这边有一个小点需要注意下(不知道是不是笔者搞错了)，就是将 www 文件夹引入到 XCode 中的时候，注意不要选择 Copy 而是 File Reference，即最终的文件夹应该是如下图所示的蓝色而不是黄色。 ![](http://7xkt0f.com1.z0.glb.clouddn.com/861EEF1C-ADAE-40D3-AB56-EBD0AB4A13DB.png)
+(3)添加 www 文件夹一般来说会把静态资源文件放置到 www 目录下，这边有一个小点需要注意下(不知道是不是笔者搞错了)，就是将 www 文件夹引入到 XCode 中的时候，注意不要选择 Copy 而是 File Reference，即最终的文件夹应该是如下图所示的蓝色而不是黄色。 ![](http://7xkt0f.com1.z0.glb.clouddn.com/861EEF1C-ADAE-40D3-AB56-EBD0AB4A13DB.png)
 
 ### Network Configuration
 
 > * [cordova-5-ios-9-security-policy-changes](http://moduscreate.com/cordova-5-ios-9-security-policy-changes/)
 
-有时候在 iOS 中进行配置的时候会发现部分网络请求被 Ban，可以根据以下几个步骤进行排查。（1）判断 config.xml 中是否设置了网络请求的白名单，老实说现在 cordova-plugin-whitelist 这个插件都没有了 iOS 端，不确定这个是不是需要的。
+有时候在 iOS 中进行配置的时候会发现部分网络请求被 Ban，可以根据以下几个步骤进行排查。(1)判断 config.xml 中是否设置了网络请求的白名单，老实说现在 cordova-plugin-whitelist 这个插件都没有了 iOS 端，不确定这个是不是需要的。
 
 ```
 <!-- Allow images, xhrs, etc. to google.com --> <access origin="http://google.com" /> <access origin="https://google.com" /> <!-- Access to the subdomain maps.google.com --> <access origin="http://maps.google.com" /> <!-- Access to all the subdomains on google.com --> <access origin="http://*.google.com" /> <!-- Enable requests to content: URLs --> <access origin="content:///*" /> <!-- Don't block any requests --> <access origin="*" />
 ```
 
-（2）在 iOS 9 之后默认是不允许非 HTTPs 的请求发出，所以要修改下配置允许发起 HTTP 请求。 ![](http://i.stack.imgur.com/nGw3j.png)
+(2)在 iOS 9 之后默认是不允许非 HTTPs 的请求发出，所以要修改下配置允许发起 HTTP 请求。 ![](http://i.stack.imgur.com/nGw3j.png)
 
 ```
 <key>NSAppTransportSecurity</key> <dict>    <key>NSAllowsArbitraryLoads</key>    <true/> </dict>
 ```
 
-（3）检查下 Content Security Policy Content Security Policy 一般用于对于网页内容的控制，不过这东西如果禁止了你访问网络，那么在浏览器内也是看得出来的。
+(3)检查下 Content Security Policy Content Security Policy 一般用于对于网页内容的控制，不过这东西如果禁止了你访问网络，那么在浏览器内也是看得出来的。
 
 ```
 <!-- Good default declaration:    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:        * Enable inline JS: add 'unsafe-inline' to default-src        * Enable eval(): add 'unsafe-eval' to default-src --> <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *"> <!-- Allow everything but only from the same origin and foo.com --> <meta http-equiv="Content-Security-Policy" content="default-src 'self' foo.com"> <!-- This policy allows everything (eg CSS, AJAX, object, frame, media, etc) except that    * CSS only from the same origin and inline styles,    * scripts only from the same origin and inline styles, and eval() --> <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"> <!-- Allows XHRs only over HTTPS on the same domain. --> <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:"> <!-- Allow iframe to https://cordova.apache.org/ --> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
