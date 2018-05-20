@@ -719,7 +719,7 @@ doSomething(1.0, success: { parameter1 in
 
 * **3.9.1** 一般来说，避免使用下标直接访问某个数组，而应该使用类似于`.first`、`.last`这样的访问器进行访问。另外，应该优先使用`for item in items`语法来替代`for i in 0..<items.count`。如果你打算用下标遍历数组，那么一定保证不能越界。
 
-* **3.9.2** 永远不要使用`+=` 或者 `+`运算符来增加或者连接数组，应该使用`.append()` 或者 `.appendContentsOf()` 方法。如果你想定义一个从其他数组生成的不可变数组，那么应该使用`let`关键字，即： `let myNewArray = arr1 + arr2`, 或者 `let myNewArray = [arr1, arr2].flatten()`。
+* **3.9.2** 永远不要使用`+=` 或者 `+`运算符来增加或者连接数组，应该使用`.append()` 或者 `.appendContentsOf()` 方法。如果你想定义一个从其他数组生成的不可变数组，那么应该使用`let`关键字，即: `let myNewArray = arr1 + arr2`, 或者 `let myNewArray = [arr1, arr2].flatten()`。
 
 ### 3.10 Error Handling
 假设某个函数 `myFunction` 需要去返回一个`String`类型，不过有可能会在某个点抛出异常，一般来说会将该函数的返回值设置为`String?`：
@@ -932,9 +932,9 @@ Guidelines:
 
 * **4.1.1** 每行不应超过160个字符
 
-* **4.1.2** 即使某些注释只有一行，也应该使用块注释符： (`/** */`).
+* **4.1.2** 即使某些注释只有一行，也应该使用块注释符: (`/** */`).
 
-* **4.1.3** 不用给每行的开头都加上： `*`.
+* **4.1.3** 不用给每行的开头都加上: `*`.
 
 * **4.1.4** 使用新的 `- parameter` 标识符来代替老的`:param:` syntax (注意这边是小写的 `parameter` 而不是`Parameter`).
 
