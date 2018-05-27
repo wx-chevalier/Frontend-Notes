@@ -20,7 +20,7 @@ Hybrid 技术分为两个大的分支，一个以 Cordova 为代表的基于系�
 
 * [Android 篇](./Android)
 
-* [混合式开发篇](./Hybrid)
+* [Hybrid 篇](./Hybrid)
 
 * [数据可视化篇](./DataVisualization)
 
