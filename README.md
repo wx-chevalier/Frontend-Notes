@@ -10,19 +10,21 @@ Hybrid 技术分为两个大的分支，一个以 Cordova 为代表的基于系�
 
 “ 一次编码，处处运行 ” 随着技术的发展，不同平台的差异会更加体现在设计，而非实现。
 
+**建议前往 [xCompass](https://wxyyxc1992.github.io/home/#/search) 交互式地检索、查找需要的文章/链接/书籍/课程，或者直接浏览本仓库的目录以了解更多内容。**
+
 本仓库包含以下内容：
 
 ---
 
 ✨ 系列文章/随笔
 
-* [iOS 篇](./iOS)
+- [iOS 篇](./iOS)
 
-* [Android 篇](./Android)
+- [Android 篇](./Android)
 
-* [Hybrid 篇](./Hybrid)
+- [Hybrid 篇](./Hybrid)
 
-* [数据可视化篇](./DataVisualization)
+- [数据可视化篇](./DataVisualization)
 
 # 关于
 
