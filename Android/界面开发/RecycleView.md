@@ -30,7 +30,7 @@
 
 > RecyclerView is a more advanced and flexible version of ListView. This widget is a container for large sets of views that can be recycled and scrolled very efficiently. Use the RecyclerView widget when you have lists with elements that change dynamically. 简单说就是当你需要动态展示一组数据的时候就会需要用到它。
 
-# List
+#  List
 
 首先要用这个控件，你需要在gradle文件中添加包的引用(配合官方CardView使用)
 
