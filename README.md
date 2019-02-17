@@ -2,7 +2,7 @@
 
 随着 Web 技术的迅猛发展，ReactNative, Weex, Weapp 为代表的混合式开发日趋成为与 Android、iOS 原生开发并肩的开发模式之一；而在可预见的未来，VR 、 AR、WebAssembly 等一系列技术粉墨登场，原本前端之间的隔阂逐渐消亡，我们慢慢进入了大前端的时代。
 
-![default](https://i.postimg.cc/MHBjgpQR/image.png)
+![default](https://i.postimg.cc/y1QXgJ6f/image.png)
 
 **建议前往 [xCompass](https://wxyyxc1992.github.io/home/#/search)/[alfred-sg](https://github.com/wxyyxc1992/Soogle/tree/master/alfred-sg) 交互式地检索、查找需要的文章/链接/书籍/课程，或者直接浏览本仓库的目录以了解更多内容。**
 
