@@ -2,7 +2,7 @@
 
 > [iOS Plugin Development Guide](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/plugin.html)
 
-在 iOS 的 WebView 开发中，经常会把 Cordova 作为增强版的 WebView 使用。关于本部分的实例可以参考笔者的[iOSBoilerplate](https://github.com/wxyyxc1992/iOS-Boilerplate/tree/master/UI-Components/Widgets/WebView/Cordova)，可以在 REAME.md 中查看使用说明，也可以`git clone`之后直接运行，按照指导进入相关页面。
+在 iOS 的 WebView 开发中，经常会把 Cordova 作为增强版的 WebView 使用。关于本部分的实例可以参考笔者的[iOSBoilerplate](https://github.com/wx-chevalier/iOS-Boilerplate/tree/master/UI-Components/Widgets/WebView/Cordova)，可以在 REAME.md 中查看使用说明，也可以`git clone`之后直接运行，按照指导进入相关页面。
 
 ## Installation
 
