@@ -1,6 +1,6 @@
 [![返回目录](https://i.postimg.cc/JzFTMvjF/image.png)](https://github.com/wx-chevalier/Awesome-CheatSheets)
 
-# Canvas & WebGL CheatSheet
+# Canvas & WebGL
 
 SVG 只是一种矢量图形文件格式， 不仅现在的浏览器都支持，很多主流的系统也都支持。可以代替一些图片,多用于图标,以及图表上,优势在于拥有 HTML 的 event 事件,交互起来很方便。
 
