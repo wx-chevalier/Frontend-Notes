@@ -1,4 +1,4 @@
-[![返回目录](https://parg.co/UY3)](https://github.com/wx-chevalier/Web-Series)
+[![返回目录](https://i.postimg.cc/50XLzC7C/image.png)](https://github.com/wx-chevalier/Web-Series)
 
 # React Native 架构原理
 
