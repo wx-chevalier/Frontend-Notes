@@ -1,17 +1,13 @@
-# 混合式界面开发基础与工程实践
+# 混合开发/跨端开发实践
 
-![](https://parg.co/bDY) ![](https://parg.co/bDm)
+Cordova 的基础是 html 和 js 运行在 webview 容器里面,通过 Cordova 提供的接口与硬件通讯;所以它的效率天生收到限制,而且也受到了各个厂商对 webkit 内核的好坏;比如之前基于国产某 Cloud 的程序,在华为手机上显示就不正常,花费了不少精力修改;
+RN 的效率由于是将 View 编译成了原生 View,所以效率上要比基于 Cordova 的 HTML5 高很多,但是它也有效率问题,RN 的渲染机制是基于前端框架的考虑,复杂的 UI 渲染是需要依赖多个 view 叠加.比如我们渲染一个复杂的 ListView,每一个小的控件,都是一个 native 的 view,然后相互组合叠加.想想此时如果我们的 list 再需要滑动刷新,会有多少个对象需要渲染.所以也就有了前面所说的 RN 的列表方案不友好;
+Flutter  吸收了前两者的教训之后,在渲染技术上,选择了自己实现(GDI),由于有更好的可控性,使用了新的语言 Dart,避免了 RN 的那种通过桥接器与 Javascript 通讯导致效率低下的问题,所以在性能方面比 RN 更高一筹;有经验的开发者可以打开 Android 手机开发者选项里面的显示边界布局,发现 Flutter 的布局是一个整体.说明 Flutter 的渲染没用使用原生控件进行渲染
 
-# 前言
+# 混合开发
 
-## 参考
+依赖于像 APICloud 这样的第三方工具，开发者是可以较好地屏蔽底层开发细节；而在 React Native 与 Flutter 开发中，我们仍需要去改造或实现许多的原生代码。
 
-## 版权
+![](https://i.postimg.cc/V6SC1t89/image.png)
 
-笔者所有文章遵循 [知识共享 署名-非商业性使用-禁止演绎 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)，欢迎转载，尊重版权。如果觉得本系列对你有所帮助，欢迎给我家布丁买点狗粮(支付宝扫码)~
-
-![](https://github.com/wx-chevalier/OSS/blob/master/2017/8/1/Buding.jpg?raw=true)
-
-# 目录
-
-> 因为本系列文章还处于不断完善中，目录中链接可能存在错误，请直接前往对应目录浏览相关章节。
+# 小程序开发
