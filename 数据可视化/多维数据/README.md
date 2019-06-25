@@ -4,6 +4,8 @@
 
 常见的方式是将这样的一个多维的关系型数据库视为一个多维的数据立方体(cube)，这种方式最知名的实践之一便是数据透视表，但数据透视表在数据的直观展示能力上非常欠缺。
 
+![](https://i.postimg.cc/fyWtN7Vx/image.png)
+
 # 链接
 
 - http://lobay.moe/2019/06/17/GoG/canary-base-theory/#%E5%8F%AF%E8%A7%86%E5%8C%96%E8%BF%87%E7%A8%8B
