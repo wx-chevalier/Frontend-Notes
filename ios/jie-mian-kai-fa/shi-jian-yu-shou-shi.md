@@ -1,0 +1,197 @@
+---
+title: iOS-Gesture&Event
+tags: 'Cocoa,ViewController,Gesture'
+---
+
+# 事件与手势
+
+## Introduction
+
+触摸\(Cocoa Touch\)就是用户的手指放在屏幕上，系统和硬件联合工作，会知道何时触摸屏幕以及触摸屏幕的未知。触摸事件是在UIView上进行的，而不是一个UIResponder对象。触摸本身是一个UITouch对象，每一个手指即会对应一个UITouch对象，多个UITouch对象包含在一个UIEvent中。系统会将UIEvent发送到应用程序中，最后应用程序将UIEvent传递给当前一个UIView。
+
+> 参考资料
+>
+> * [iOS事件机制](http://ryantang.me/blog/2013/12/07/ios-event-dispatch-1/)
+
+### iOS事件分类
+
+对于IOS设备用户来说，他们操作设备的方式主要有三种：触摸屏幕、晃动设备、通过遥控设施控制设备。对应的事件类型有以下三种：
+
+1、触屏事件\(Touch Event\)：单点、多点触控以及各种手势操作
+
+2、运动事件\(Motion Event\)：重力、加速度传感器等
+
+3、远端控制事件\(Remote-Control Event\)：远程遥控iOS设备多媒体播放等
+
+![iOS&#x4E8B;&#x4EF6;&#x56FE;&#x4F8B;](http://ryantang.me/images/2013/12/ios_event_dispatch/1.png)
+
+## 事件封装与响应
+
+### UIControl控件事件分类
+
+> 参考资料
+>
+> * [iOS UIControl几个事件的说明](http://blog.csdn.net/g5dsk/article/details/6613943)
+
+在控件事件中，简单解释下下面几个事件。
+
+说明：由于是在“iOS 模拟器”中测试的，所以不能用手指，只能用鼠标。
+
+1\)UIControlEventTouchDown
+
+指鼠标左键按下\(注：只是“按下”\)的动作
+
+2\)UIControlEventTouchDownRepeat
+
+指鼠标左键连续多次重复按下\(注：只是“按下”\)的动作，比如，鼠标连续双击、三击、……、多次连击。
+
+说明：多次重复按下时，事件序列是这样的：
+
+UIControlEventTouchDown -&gt;
+
+\(UIControlEventTouchUpInside\) -&gt;
+
+UIControlEventTouchDown -&gt;
+
+UIControlEventTouchDownRepeat -&gt;
+
+\(UIControlEventTouchUpInside\) -&gt;
+
+UIControlEventTouchDown -&gt;
+
+UIControlEventTouchDownRepeat -&gt;
+
+\(UIControlEventTouchUpInside\) -&gt;
+
+...
+
+除了第一次按下外，后面每次摁下都是一个UIControlEventTouchDown事件，然后紧跟一个UIControlEventTouchDownRepeat事件。
+
+3\)UIControlEventTouchDragInside
+
+指按下鼠标，然后在控件边界范围内拖动。
+
+4\)UIControlEventTouchDragOutside
+
+与UIControlEventTouchDragInside不同的是，拖动时，鼠标位于控件边界范围之外。但首先得有个UIControlEventTouchDown事件，然后接一个UIControlEventTouchDragInside事件，再接一个UIControlEventTouchDragExit事件，这时，鼠标已经位于控件外了，继续拖动就是UIControlEventTouchDragOutside事件了。
+
+具体操作是：在控件里面按下鼠标，然后拖动到控件之外。
+
+5\)UIControlEventTouchDragEnter
+
+指拖动动作中，从控件边界外到内时产生的事件。
+
+6\)UIControlEventTouchDragExit
+
+指拖动动作中，从控件边界内到外时产生的事件。
+
+7\)UIControlEventTouchUpInside
+
+指鼠标在控件范围内抬起，前提先得按下，即UIControlEventTouchDown或UIControlEventTouchDownRepeat事件。
+
+8\)UIControlEventTouchUpOutside
+
+指鼠标在控件边界范围外抬起，前提先得按下，然后拖动到控件外，即 UIControlEventTouchDown -&gt; UIControlEventTouchDragInside\(n 个\) -&gt; UIControlEventTouchDragExit -&gt; UIControlEventTouchDragOutside\(n 个\) 时间序列，再然后就是抬起鼠标，产生UIControlEventTouchUpOutside事件。
+
+#### 自动关联
+
+可以通过Xib里面的关联口IBAction实现。
+
+#### 手动关联
+
+```text
+[button addTarget:self action:@selector(navigatePics:) forControlEvents:UIControlEventTouchUpInside];
+```
+
+### 手势关联
+
+每一个特定的手势必须关联到view对象中才会有作用，一个view对象可以关联多个不同的特定手势，但是每一个特定的手势只能与一个view相关联。当用户触摸了view，这个GestureRecognizer就会接受到消息，它可以响应特定的触摸事件。
+
+![enter description here](http://images.cnitblog.com/blog/133128/201304/30154250-3cc837e5df9b44f59d504c57eee6b8aa.png)
+
+![enter description here](http://images.cnitblog.com/blog/133128/201304/30154335-9b65e3e1d4024132beba1a3c8360c4b5.png)
+
+通俗来说，关联手势与响应分为以下三步:
+
+* 创建GestureRecognizer实例
+* addGestureRecognizer
+* 实现处理手势的方法
+
+#### UIPanGestureRecognizer
+
+```text
+_panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlerPanGesture:)];
+    _panGestureRecognizer.delegate = self;
+    _panGestureRecognizer.maximumNumberOfTouches = 2;
+    _panGestureRecognizer.minimumNumberOfTouches = 2;
+    [self.view addGestureRecognizer:_panGestureRecognizer];
+
+- (void)handlerPanGesture:(UIPanGestureRecognizer *)recognizer
+{
+    if ((recognizer.state == UIGestureRecognizerStateBegan) ||
+        (recognizer.state == UIGestureRecognizerStateChanged))
+    {
+        CGPoint offset = [recognizer translationInView:self.view];
+        CGRect frame = self.rightViewController.view.frame;
+        frame.origin.x += offset.x;
+        if (frame.origin.x >= 0 && frame.origin.x <= kScreenWidth)
+        {
+            self.rightViewController.view.frame = frame;
+        }
+
+        [recognizer setTranslation:CGPointZero inView:self.view];
+    }
+    else if (recognizer.state == UIGestureRecognizerStateEnded)
+    {
+        BOOL isVisible = self.rightViewController.view.frame.origin.x < kScreenWidth / 2;
+        [self showRightView:isVisible];
+    }
+}
+```
+
+## 事件分发\(Event Delivery\)
+
+第一响应者\(First responder\)指的是当前接受触摸的响应者对象\(通常是一个UIView对象\)，即表示当前该对象正在与用户交互，它是响应者链的开端。整个响应者链和事件分发的使命都是找出第一响应者。
+
+UIWindow对象以消息的形式将事件发送给第一响应者，使其有机会首先处理事件。如果第一响应者没有进行处理，系统就将事件\(通过消息\)传递给响应者链中的下一个响应者，看看它是否可以进行处理。
+
+iOS系统检测到手指触摸\(Touch\)操作时会将其打包成一个UIEvent对象，并放入当前活动Application的事件队列，单例的UIApplication会从事件队列中取出触摸事件并传递给单例的UIWindow来处理，UIWindow对象首先会使用hitTest:withEvent:方法寻找此次Touch操作初始点所在的视图\(View\)，即需要将触摸事件传递给其处理的视图，这个过程称之为hit-test view。
+
+## 复杂手势控制\(Complex Gesture Event\)
+
+在iOS中一个事件用一个UIEvent对象表示，UITouch用来表示一次对屏幕的操作动作，由多个UITouch对象构成了一个UIEvent对象。另外，UIResponder是所有响应者的父类，UIView、UIViewController、UIWindow、UIApplication都直接或间接的集成了UIResponder。
+
+### Gesture Recognizers\(手势识别器\)
+
+Gesture Recognizers是一类手势识别器对象，它可以附属在你指定的View上，并且为其设定指定的手势操作，例如是点击、滑动或者是拖拽。当触控事件 发生时，设置了Gesture Recognizers的View会先通过识别器去拦截触控事件，如果该触控事件是事先为View设定的触控监听事件，那么Gesture Recognizers将会发送动作消息给目标处理对象，目标处理对象则对这次触控事件进行处理，先看看如下流程图。
+
+[Action传递模型](http://ryantang.me/images/2013/12/ios_event_dispatch/2.png)
+
+在iOS中，View就是我们在屏幕上看到的各种UI控件，当一个触控事件发生时，Gesture Recognizers会先获取到指定的事件，然后发送动作消息\(action message\)给目标对象\(target\)，目标对象就是ViewController，在ViewController中通过事件方法完成对该事件的处理。Gesture Recognizers能设置诸如单击、滑动、拖拽等事件，通过Action-Target这种设计模式，好处是能动态为View添加各种事件监听，而不用去实现一个View的子类去完成这些功能。
+
+以上过程就是我们在开发中在方法中常见的设置action和设置target，例如为UIButton设置监听事件等。
+
+#### 常用手势识别类
+
+在UIKit框架中，系统为我们事先定义好了一些常用的手势识别器，包括点击、双指缩放、拖拽、滑动、旋转以及长按。通过这些手势识别器我们可以构造丰富的操作方式。
+
+[手势识别类列表](http://ryantang.me/images/2013/12/ios_event_dispatch/3.png)
+
+在上表中可以看到，UIKit框架中已经提供了诸如UITapGestureRecognizer在内的六种手势识别器，如果你需要实现自定义的手势识别器，也可以通过继承UIGestureRecognizer类并重写其中的方法来完成，这里我们就不详细讨论了。
+
+每一个Gesture Recognizer关联一个View，但是一个View可以关联多个Gesture Recognizer，因为一个View可能还能响应多种触控操作方式。当一个触控事件发生时，Gesture Recognizer接收一个动作消息要先于View本身，结果就是Gesture Recognizer作为View处理触控事件的代表，或者叫代理。当Gesture Recognizer接收到指定的事件时，它就会发送一条动作消息\(action message\)给ViewController并处理。
+
+#### 连续和不连续动作
+
+[连续与不连续动作](http://ryantang.me/images/2013/12/ios_event_dispatch/4.png)
+
+触控动作同时分为连续动作\(continuous\)和不连续动作\(discrete\)，连续动作例如滑动和拖拽，它会持续一小段时间，而不连续动作例如单击，它瞬间就会完成，在这两类事件的处理上又稍有不同。对于不连续动作，Gesture Recognizer只会给ViewContoller发送一个单一的动作消息\(action message\),而对于连续动作，Gesture Recognizer会发送多条动作消息给ViewController，直到所有的事件都结束。
+
+为一个View添加GestureRecognizer有两种方式，一种是通过InterfaceBuilder实现，另一种就是通过代码实现，我们看看通过代码来如何实现。
+
+### Drag\(拖拽\)
+
+### Zoom\(缩放\)
+
+\[8\]: [http://images.cnitblog.com/blog/133128/201304/30154335-9b65e3e1d4024132beba1a3c8360c4b5.png](http://images.cnitblog.com/blog/133128/201304/30154335-9b65e3e1d4024132beba1a3c8360c4b5.png)
+

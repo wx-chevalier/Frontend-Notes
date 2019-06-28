@@ -1,0 +1,358 @@
+# 概述
+
+## Introduction
+
+### Objective-C VS Swift
+
+Swift 作为后起之秀在很多方面具备了很多的先进性，但是在逐渐成熟的路上 Swift 无疑肯定会存在一些缺陷。
+
+### AppStore
+
+#### Device & Certificate
+
+Apple 宣布 iOS 9 中调试模式
+
+### Features Iteration
+
+#### iOS 7
+
+#### iOS 8
+
+[iOS 8 新特性示范](https://github.com/shu223/iOS8-Sampler)
+
+#### iOS 9
+
+> [iOS 9 新特性示范](https://github.com/ChenYilong/iOS9AdaptationTips) &gt;[iOS9 适配](http://www.tekuba.net/program/364/)
+
+### Reference
+
+#### Forum & Lessons
+
+* [30DaysofSwift - 一系列实战学习](https://github.com/allenwong/30DaysofSwift)
+
+#### Practice & Resources
+
+* [trendingcocoapods- CocoaPods 库的流行指数](http://trendingcocoapods.github.io/)
+* [YYCategories- 功能丰富的 Category 类型工具库](https://github.com/ibireme/YYCategories)
+* [iOS-Categories](https://github.com/shaojiankui/iOS-Categories/)
+
+## Quick Start
+
+### 依赖管理
+
+#### CocoaPods
+
+CocoaPods is the dependency manager for Swift and Objective-C Cocoa projects. It has almost ten thousand libraries and can help you scale your projects elegantly.
+
+* Install
+
+  ```text
+  $ sudo gem install cocoapods
+  ```
+
+* GetStarted
+
+  首先使用 Xcode 创建一个正常的 Xcode 项目，然后使用`pod init`命令即可创建一个 Podfile，样式如下：
+
+  ```yaml
+  platform :ios, '8.0'
+  use_frameworks!
+  target 'MyApp' do
+  pod 'AFNetworking', '~> 2.5'
+  pod 'ORStackView', '~> 2.0'
+  pod 'SwiftyJSON', '~> 2.1'
+  end
+  ```
+
+然后使用`pod install`命令即可创建一个 .xcworkspace 文件，直接打开该文件即会自动引入 Pod 的依赖项目。在国内由于墙的原因往往导致 Pod 更新太慢，可以尝试更新其他源：
+
+```text
+pod repo remove master
+pod repo add master https://gitcafe.com/akuandev/Specs.git
+pod repo update
+```
+
+```text
+最近使用CocoaPods来添加第三方类库，无论是执行pod install还是pod update都卡在了Analyzing dependencies不动
+```
+
+原因在于当执行以上两个命令的时候会升级 CocoaPods 的 spec 仓库，加一个参数可以省略这一步，然后速度就会提升不少。加参数的命令如下：
+
+```text
+pod install --verbose --no-repo-update
+pod update --verbose --no-repo-update
+```
+
+### Xcode
+
+我们使用 Xcode 进行程序开发时，往往需要大量的辅助性的插件，一般来说，推荐使用[Alcatraz](http://alcatraz.io/)进行统一的插件管理。笔者这里列举下自己常用的插件。
+
+#### VVDocument: 文档类插件
+
+Writing documentation is so important for developing, but it is really painful with Xcode. Think about how much time you are wasting in pressing '\*' or '/', and typing the parameters again and again. Now, you can find the method \(or any code\) you want to document to, and type in ///, the document will be generated for you and all params and return will be extracted into a Javadoc style, which is compatible with [appledoc](https://github.com/tomaz/appledoc), [Doxygen](http://www.stack.nl/%7Edimitri/doxygen/) and [HeaderDoc](https://developer.apple.com/library/mac/documentation/DeveloperTools/Conceptual/HeaderDoc/intro/intro.html). You can just fill the inline placeholder tokens to finish your document. ![](https://camo.githubusercontent.com/ca5518c9872e15b8a95b9d8c5f44bc331977d710/68747470733a2f2f7261772e6769746875622e636f6d2f6f6e65766361742f5656446f63756d656e7465722d58636f64652f6d61737465722f53637265656e53686f742e676966)
+
+![](https://camo.githubusercontent.com/58e452b57245cd79c2e59ac7926609be4dffbfd8/68747470733a2f2f7261772e6769746875622e636f6d2f6f6e65766361742f5656446f63756d656e7465722d58636f64652f6d61737465722f7676646f63756d656e7465722d73776966742e676966)
+
+#### [ESJsonFormat-Xcode](https://github.com/EnjoySR/)
+
+![](https://github.com/EnjoySR/ESJsonFormat-Xcode/raw/master/ScreenShot/ScreenShot1.png)
+
+#### [SwiftGen](https://github.com/AliSoftware/SwiftGen)
+
+#### [Injection Plugin for Xcode](https://github.com/johnno1962/injectionforxcode)
+
+![](https://github.com/johnno1962/injectionforxcode/raw/master/documentation/images/injected.gif)
+
+## IOS Infrastructure
+
+### LifeCycle
+
+> 参考资料
+>
+> [深度解析 iOS 应用程序的生命周期](http://www.csdn.net/article/2015-06-23/2825023/2#rd)
+
+#### 应用程序状态变迁
+
+IOS 应用程序的状态图如下所示：![](http://img.ptcms.csdn.net/article/201506/23/5588c94641d3a.jpg)
+
+主要状态有：
+
+* Not running : App 还没运行
+* Inactive：App 运行在 foreground 但没有接收事件
+* Active：App 运行在 foreground 和正在接收事件
+* Background：运行在 background 和正在执行代码
+* Suspended：运行在 background 但没有执行代码
+
+### API
+
+iOS 的整体架构图如图 2-40 所示，分为 4 层 ——Cocoa Touch 层、Media 层、Core Services 层和 Core OS 层，下面概要介绍一下这 4 层。
+
+![](http://www.2cto.com/uploadfile/2013/0706/20130706045250587.jpg)
+
+#### Cocoa Touch 层
+
+| 框　　架 | 前　　缀 | 说　　明 |
+| :--- | :--- | :--- |
+| Address Book UI | AB | 访问用户的联系人信息 |
+| Event Kit UI | EK | 访问用户的日历事件数据 |
+| Game Kit | GK | 提供能够进行点对点的网络通信的 API |
+| iAd | AD | 在应用中嵌入广告 |
+| Map Kit | MK | 在应用中嵌入地图和地理信息编码等 |
+| Message UI | MF | 提供与发送 E-mail 相关的 API |
+| Twitter | TW | 提供发送 Twitter 的接口 |
+| UIKit | UI | 提供 UI 类 |
+
+#### Media 层
+
+Media 层提供了图形、音频、视频和 AirPlay 技术，包括的框架如表 2-4 所示。
+
+| 框　　架 | 前　　缀 | 说　　明 |
+| :--- | :--- | :--- |
+| Assets Library | AL | 提供访问用户的图片和视频的接口 |
+| AudioToolbox | Audio | 录制或播放音频、音频流以及格式转换 |
+| AudioUnit | Audio，AU | 提供使用内置音频单元服务，以及音频处理模块 |
+| AV Foundation | AV | 提供播放与录制音频和视频的 Objective-C 接口 |
+| Core Audio | Audio | 提供录制、制作、播放音频的 C 语言接口 |
+| Core Graphics | CG | 提供 Quartz 2D 接口 |
+| Core Image | CI | 提供操作视频和静态图像的接口 |
+| Core MIDI | MIDI | 提供用于处理 MIDI 数据低层的 API |
+| Core Text | CT | 提供渲染文本和处理字体的简单、高效的 C 语言接口 |
+| Core Video | CV | 提供用于处理音频和视频的 API |
+| Image IO | CG | 包含一些读写图像数据类 |
+| GLKit | GLK | 包含了构建复杂 OpenGL ES 应用的 Objective-C 实用类 |
+| Media Player | MP | 包含全屏播放接口 |
+| OpenAL | AL | 包含了 OpenAL\(跨平台的音频\)的 C 语言接口 |
+| OpenGL ES | EAGL，GL | 包含 OpenGL ES\(跨平台的 2D/3D 图形库\)的 C 语言接口 |
+| Quartz Core | CA | 提供动画接口类 |
+
+#### Core Services 层
+
+该层提供了 iCloud、应用内购买、SQLite 数据库和 XML 支持等技术，包括的主要框架如表 2-5 所示。
+
+Accounts AC 用于访问用户的 Twitter 账户\(iOS 5 之后才有此 API\)
+
+AddressBook AB 访问用户的联系人信息
+
+AdSupport AS 获得 iAD 广告标识
+
+CFNetwork CF 提供了访问 Wi-Fi 网络和蜂窝电话网络的 API
+
+Core Data NS 提供管理应用数据的 ORM 接口
+
+CoreFoundation CF 它是 iOS 开发中最基本的框架，包括数据集
+
+Core Location CL 提供定位服务的 API
+
+CoreMedia CM 提供 AV Foundation 框架使用的底层媒体类型。可以精确控制音频或视频的创建及展示
+
+CoreMotion CM 接收和处理重力加速计以及其他的运动事件
+
+CoreTelephony CT 提供访问电话基本信息的 API
+
+Event Kit EK 访问用户的日历事件数据
+
+Foundation NS 为 Core Foundation 框架的许多功能提供 Objective-C 封装，是 Objective-C 最为基本框架
+
+MobileCoreServices UT 定义统一类型标识符\(UTI \)使用的底层类型
+
+Newsstand Kit NK 提供在后台下载杂志和新闻的 API 接口\(iOS 5 之后才有此 API\)
+
+Pass Kit PK 提供访问各种优惠券的 API\(iOS 6 之后才有此 API\)
+
+QuickLook QL 该框架可以预览无法直接查看的文件内容，例如打开 PDF 文件
+
+Social SL 提供社交网络访问 API，中国区提供新浪微博 API\(iOS 6 之后才有此 API\)
+
+Store Kit SK 提供处理应用内置收费的资金交易
+
+SystemConfiguration SC 用于确定设备的网络配置\(例如，使用该框架判断 Wi-Fi 或者蜂窝连接是否正在使用中\)，也可以用于判断某个主机服务是否可以使用
+
+#### Core OS 层
+
+该层提供了一些低级功能，开发中一般不直接使用它。
+
+| 框　　架 | 前　　缀 | 说　　明 |
+| :--- | :--- | :--- |
+| Accelerate | AC | 访问重力加速计 API |
+| Core Bluetooth | CB | 访问低能耗蓝牙设备 API |
+| External Accessory | EA | 访问外围配件 API 接口 |
+| Generic Security Services | gss | 提供一组安全相关的服务 |
+| Security | CSSM，Sec | 管理证书、公钥、私钥和安全信任策略 API |
+
+### Architecture
+
+> [InfoQ-IOS 应用架构谈](http://www.infoq.com/cn/articles/ios-app-arch-2-1)
+
+#### View
+
+View 层是最贴近业务的底层架构，建议的代码组织方式为：
+
+![](http://cdn2.infoqstatic.com/statics_s1_20150616-0050/resource/articles/ios-app-arch-2-1/zh/resources/0520005.jpg)
+
+## Foundation & Cocoa
+
+## SysProc
+
+### 消息通信
+
+在 OJC 中，不同类之间的消息传递可以通过 delegate 来实现。而 IOS 中，不同类之间的消息传递可以通过 NSNotification 来实现。
+
+* 注册通知：即要在什么地方接受消息
+
+  \`\`\`
+
+\[\[NSNotificationCenter defaultCenter\] addObserver:self selector:@selector\(mytest:\) name:@" mytest"object:nil\];
+
+```text
+[[NSNotificationCenter defaultCenter] removeObserver:self name:@"saveMessage" object:nil];
+```
+
+```text
+参数介绍:
+addObserver:观察者，即在什么地方接收通知;
+selector:收到通知后调用何种方法;
+name:通知的名字，也是通知的唯一标示，编译器就通过这个找到通知的。
+
+- 发送通知
+```
+
+\[\[NSNotificationCenter defaultCenter\] postNotificationName:@"mytest" object:searchFriendArray\];
+
+```text
+参数：
+postNotificationName：通知的名字，也是通知的唯一标示，编译器就通过这个找到通知的。
+object：传递的参数
+
+- 注册方法的写法
+```
+
+* \(void\) mytest:\(NSNotification\*\) notification
+
+  {
+
+  id obj = \[notification object\];// 获取到传递的对象
+
+}
+
+## Reference
+
+### Coding Style
+
+```text
+import "SomeModel.h"
+
+import "SomeView.h"
+
+import "SomeController.h"
+
+import "SomeStore.h"
+
+import "SomeHelper.h"
+
+import <SomeExternalLibrary/SomeExternalLibraryHeader.h>
+
+static NSString * const XYZFooStringConstant = @"FoobarConstant";
+
+static CGFloat const XYZFooFloatConstant = 1234.5;
+
+@interface XYZFooViewController () <XYZBarDelegate>
+
+@property (nonatomic, copy, readonly) Foo *foo;
+
+@end
+
+@implementation XYZFooViewController
+
+pragma mark - Lifecycle
+(instancetype)initWithFoo:(Foo *)foo;
+
+(void)dealloc;
+
+pragma mark - View Lifecycle
+(void)viewDidLoad;
+
+(void)viewWillAppear:(BOOL)animated;
+
+pragma mark - Layout
+(void)makeViewConstraints;
+
+pragma mark - Public Interface
+(void)startFooing;
+
+(void)stopFooing;
+
+pragma mark - User Interaction
+(void)foobarButtonTapped;
+
+pragma mark - XYZFoobarDelegate
+(void)foobar:(Foobar *)foobar didSomethingWithFoo:(Foo *)foo;
+
+pragma mark - Internal Helpers
+(NSString *)displayNameForFoo:(Foo *)foo;
+
+@end
+```
+
+### GreenHand
+
+* [10 步成为专业 iOS 开发者 —— 从零起步](http://www.cocoachina.com/ios/20150617/12165.html)
+
+#### 博客
+
+* [Kenshin Cui's Blog](http://www.cnblogs.com/kenshincui/category/594479.html)
+* [苹果吧](http://www.cnblogs.com/ios8/category/389600.html)
+
+### Resources
+
+#### Practice
+
+#### OpenSource
+
+### Frameworks
+
+#### [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa)
+
+> 参考资料
+>
+> [ReactiveCocoa - iOS 开发的新框架](http://www.devtang.com/blog/2014/02/11/reactivecocoa-introduction/)
+
