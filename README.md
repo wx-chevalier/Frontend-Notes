@@ -8,8 +8,8 @@
 
 建议前往 [xCompass](https://wx-chevalier.github.io/home/#/search)/[alfred-sg](https://github.com/wx-chevalier/Soogle/tree/master/alfred-sg) 交互式地检索、查找需要的文章/链接/书籍/课程，或者直接浏览本仓库的目录以了解更多内容。
 
-| [iOS 实战篇](./iOS) | [Android 实战篇](./Android) | [Hybrid 混合开发篇](./Hybrid) | [数据可视化篇](./DataVisualization) |
-| ------------------- | --------------------------- | ----------------------------- | ----------------------------------- |
+| [iOS 实战篇](./iOS) | [Android 实战篇](./Android) | [Hybrid 混合开发篇](./Hybrid) | [数据可视化篇](./DataVisualization) | [IoT 实战篇](./IoT) |
+| ------------------- | --------------------------- | ----------------------------- | ----------------------------------- | ------------------- |
 
 
 # 前言
