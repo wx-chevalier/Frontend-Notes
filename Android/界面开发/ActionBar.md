@@ -1,3 +1,5 @@
+[![](https://i.postimg.cc/DfL8fsVd/image.png)](https://github.com/wx-chevalier/Frontend-Series)
+
 # Introduction
 
 [Toolbar][1]是某个应用程序中 Action Bar 的泛华。Action Bar 指 Activity 中承载了导航按钮、Brand 、标题和副标题这些部分。
@@ -6,7 +8,7 @@
 
 ### Tutorials & Docs
 
-* [Getting Started with Material Design on Android: Toolbar and Navigation Drawer](https://dzone.com/articles/getting-started-with-android-app-and-material-desi)
+- [Getting Started with Material Design on Android: Toolbar and Navigation Drawer](https://dzone.com/articles/getting-started-with-android-app-and-material-desi)
 
 # Toolbar & ActionBar
 
@@ -16,10 +18,10 @@
 
 在开发一个 Android 应用中另一个比较重要的组件就是 Toolbar，它的作用很类似于早年的 Android 中的 Action Bar，它主要担负着如下几个功能：
 
-* 导航按钮
-* 应用标题与副标题
-* 活动菜单
-* 图标
+- 导航按钮
+- 应用标题与副标题
+- 活动菜单
+- 图标
 
 ![enter description here](http://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0Bx4BSt6jniD7RTFrbmpoWjRrY00/layout_structure_appbar_structure1.png)
 
@@ -380,10 +382,10 @@ android:layout_gravity="bottom|end"
 
 设置的 layout_scrollFlags 有如下几种选项：
 
-* scroll: 所有想滚动出屏幕的 view 都需要设置这个 flag- 没有设置这个 flag 的 view 将被固定在屏幕顶部。
-* enterAlways: 这个 flag 让任意向下的滚动都会导致该 view 变为可见，启用快速 “ 返回模式 ”。
-* enterAlwaysCollapsed: 当你的视图已经设置 minHeight 属性又使用此标志时，你的视图只能已最小高度进入，只有当滚动视图到达顶部时才扩大到完整高度。
-* exitUntilCollapsed: 滚动退出屏幕，最后折叠在顶端。
+- scroll: 所有想滚动出屏幕的 view 都需要设置这个 flag- 没有设置这个 flag 的 view 将被固定在屏幕顶部。
+- enterAlways: 这个 flag 让任意向下的滚动都会导致该 view 变为可见，启用快速 “ 返回模式 ”。
+- enterAlwaysCollapsed: 当你的视图已经设置 minHeight 属性又使用此标志时，你的视图只能已最小高度进入，只有当滚动视图到达顶部时才扩大到完整高度。
+- exitUntilCollapsed: 滚动退出屏幕，最后折叠在顶端。
 
 我们上面的布局中 给 Toolbar 设置了 app:layout_scrollFlags 属性，因此，Toolbar 是可以滚动出屏幕，且向下滚动有可以出现。
 
@@ -647,7 +649,7 @@ compile('com.mikepenz:materialdrawer:3.0.9@aar') {
 }
 ```
 
-* 简单引入
+- 简单引入
 
   ```
   new DrawerBuilder().withActivity(this).build()
@@ -840,7 +842,7 @@ compile('com.mikepenz:materialdrawer:3.0.9@aar') {
 
 ### Translucent Bar( 透明状态栏 ) & Immersive Mode( 沉浸式状态栏 )
 
-> * [什么叫沉浸式状态栏 ?](http://www.zhihu.com/question/27024901)
+> - [什么叫沉浸式状态栏 ?](http://www.zhihu.com/question/27024901)
 
 透明状态栏与沉浸式状态栏不是同一种东西，透明状态栏源自 ActionBar，只是其颜色和设计状态发生了变化，一般呈现的是状态栏和 / 或导航栏透明或半透明 . 最极端的例子是在 Muzei 这样的应用上 :
 

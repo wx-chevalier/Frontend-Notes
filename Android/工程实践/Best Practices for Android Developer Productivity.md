@@ -1,3 +1,5 @@
+[![](https://i.postimg.cc/DfL8fsVd/image.png)](https://github.com/wx-chevalier/Frontend-Series)
+
 > [原文地址](https://medium.com/@sergii/best-practices-for-android-developer-productivity-cfd6ffba804c#.bp2tjpwt0)
 
 软件工程师的工作效率不仅依赖于知识的掌握程度与经验，也会依赖于你选择的工具集合、合适的环境配置以及团队内的合作技巧。本文即是作者在[Droidcon Berlin](http://droidcon.de/en/sessions/effective-android-development)上演讲的总结。 ![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/4/1-e7X-rfqUmez-yI_DdsyOCw.jpeg)
@@ -14,12 +16,12 @@
 
 Code Review 是项目开发中的常见操作，我们需要切换到某个 Feature 分支，然后重新编译运行项目，常见的工作流如下 :
 
-* 暂存本分支的更改
-* 检出待 Review 的分支
-* 在 IDE 中重载 gradle 配置文件
-* 在 IDE 中浏览代码
-* 编译、运行与测试应用
-* 切换分支并且重复以上步骤
+- 暂存本分支的更改
+- 检出待 Review 的分支
+- 在 IDE 中重载 gradle 配置文件
+- 在 IDE 中浏览代码
+- 编译、运行与测试应用
+- 切换分支并且重复以上步骤
 
 上述流程很规范很正常，不过当你的项目拥有 1000 个以上的类与不同的配置时，估计你要好几分钟来等待项目编译完毕。我们的解决方案是为特征分支使用单独的 IDE 实例与仓库文件夹，这样会避免你来回地进行分支切换。如果你想用这套方案，那么建议你到电脑至少要 16GB 以上的 RAM，你会觉得物有所值的。
 
@@ -27,9 +29,9 @@ Code Review 是项目开发中的常见操作，我们需要切换到某个 Feat
 
 笔者在 React 开发中使用 HOT Reload 是个很不错的体验，而在 Android 开发中，即使是一个很小的 Android 项目，也需要等待不少的时间来等待修改之后的代码重新构建与部署，更何况对于那些有成百上千个类与 XML 布局文件的项目。另一方面，你也需要在你的应用中跳转选择到合适的页面来查看你做的更改的实际效果。2015 年底，Android 社区逐步使用两个工具来加速代码更改的加载速度，首先是[JRebel](https://zeroturnaround.com/software/jrebel-for-android/)，源于 Java 在服务端开发中的长期实践。另一个是 Google 团队随着 Android Studio 2.0 一起推出的工具：[Instant Run](https://developer.android.com/studio/run/index.html#instant-run)。两个工具的目标差不多，不过 JRebel 包含更多的特性，但是它也需要付费。作者编辑了一个简单的表单来描述二者的特性对比 : ![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/4/0--btlhImjSPlQ37rQ.png)
 
-* https://developer.android.com/studio/run/index.html#instant-run
-* Reto Meier: “Instant Run: How Does it Work?!”
-* Oleg Selajev: “Looking at JRebel for Android and Instant Run …”
+- https://developer.android.com/studio/run/index.html#instant-run
+- Reto Meier: “Instant Run: How Does it Work?!”
+- Oleg Selajev: “Looking at JRebel for Android and Instant Run …”
 
 两个工具都正处在不断的开发与完善中，从我们的经验来看，目前还有很多的用户场景并没有被涉及到，因此我们也相信未来这两个工具的提升空间令人期待。
 
@@ -53,28 +55,28 @@ V/Example: <-- getName [16ms] = "Jake Wharton"
 
 我们在开发过程中经常会使用 Android Studio 内置的 Android Monitor 来读取日志信息，这种方式确实很简单易用，不过也有很大的缺陷 :
 
-* 我们必须使用额外的工具来对日志记录进行格式化
-* Android Studio 的调试工具是附着到应用的进程 ID 上，一旦我们重新部署应用或者杀掉了进程，之前打印出来的日志就会被覆盖掉
+- 我们必须使用额外的工具来对日志记录进行格式化
+- Android Studio 的调试工具是附着到应用的进程 ID 上，一旦我们重新部署应用或者杀掉了进程，之前打印出来的日志就会被覆盖掉
 
 作者在这里推荐的是 Jake Wharton 开源的另一款工具[Pidcat](https://github.com/JakeWharton/pidcat)，其优势在于 :
 
-* 更友好的配色与格式化
-* 根据包名来获取调试信息，即使重新部署应用也不会删除之前的日志记录
+- 更友好的配色与格式化
+- 根据包名来获取调试信息，即使重新部署应用也不会删除之前的日志记录
 
 # 网络调试与分析
 
 应用开发中我们也常常需要通过查看 HTTPClient 库的日志记录来读取客户端与服务端的交互信息，不过这种方法往往会有如下的一些缺陷 :
 
-* 如果你在开发过程中全程保持网络的日志输出，会大大影响应用的运行性能，毕竟需要一些时间来输出日志
-* 如果你的应用使用的其他依赖库需要进行网络通信，譬如 Google Analytics 这样的分析工具，我们需要进行额外的配置来过滤掉这些扰乱的信息
-* 在生产环境下无法监测到网络通信信息
+- 如果你在开发过程中全程保持网络的日志输出，会大大影响应用的运行性能，毕竟需要一些时间来输出日志
+- 如果你的应用使用的其他依赖库需要进行网络通信，譬如 Google Analytics 这样的分析工具，我们需要进行额外的配置来过滤掉这些扰乱的信息
+- 在生产环境下无法监测到网络通信信息
 
 这边作者首先建议的方法是使用类似于[Charles Proxy](https://www.charlesproxy.com/)这样的 HTTP 监测与代理工具，它可以将你的应用当成黑箱对待，并且提供了以下功能 :
 
-* HTTP/HTTPS 的流量监控与记录
-* 重定义某些特定情况下的服务端返回信息
-* 设置部分网络调用的断点
-* 为设备安装合适的 SSL 证书来阅读加密的流量
+- HTTP/HTTPS 的流量监控与记录
+- 重定义某些特定情况下的服务端返回信息
+- 设置部分网络调用的断点
+- 为设备安装合适的 SSL 证书来阅读加密的流量
 
 另一个推荐的工具就是[Facebook Stetho](http://facebook.github.io/stetho/)，它允许开发者在生产环境下获取网络交互数据，不过我们在开发中肯定也是可以使用该工具，不过作者发现好像它还不能读取基于 SSL 的加密信息。
 
@@ -90,8 +92,8 @@ V/Example: <-- getName [16ms] = "Jake Wharton"
 
 即使是有经验的开发者也往往会使用些过时的配置方案，作者建议根据如下顺序来检查下你的 build.gradle 配置 :
 
-* 使用 jcenter 来替换 mavenCentral，jcenter 的响应速度比 mavenCentral 好。
-* 检测 _Android Plugin for Gradle_ 的版本号，使用最新版本的依赖有助于提高编译速度。
-* 不要使用范围来定义依赖的版本号，而使用 “23.4.0” 这样固定的版本号来避免不确定的依赖中的 API 的变化。
+- 使用 jcenter 来替换 mavenCentral，jcenter 的响应速度比 mavenCentral 好。
+- 检测 _Android Plugin for Gradle_ 的版本号，使用最新版本的依赖有助于提高编译速度。
+- 不要使用范围来定义依赖的版本号，而使用 “23.4.0” 这样固定的版本号来避免不确定的依赖中的 API 的变化。
 
 ![](http://153.3.251.190:11900/best-practices-for-android-developer-productivity)

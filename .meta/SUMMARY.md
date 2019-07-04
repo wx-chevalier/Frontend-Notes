@@ -29,6 +29,7 @@
 - [Flutter](../Hybrid/Flutter/README.md) 
   - [引擎与运行时](../Hybrid/Flutter/引擎与运行时/README.md) 
 - [React Native](../Hybrid/React Native/README.md) 
+  - [Expo](../Hybrid/React Native/Expo/README.md) 
   - [工程实践](../Hybrid/React Native/工程实践/README.md) 
     - [调试与测试](../Hybrid/React Native/工程实践/调试与测试.md) 
   - [架构原理](../Hybrid/React Native/架构原理/README.md) 
@@ -56,7 +57,6 @@
 
 ## IoT 
 
-- [MQTT](../IoT/MQTT/README.md) 
 - [导论](../IoT/导论/README.md) 
 
 ## Specials 

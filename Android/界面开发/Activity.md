@@ -1,3 +1,5 @@
+[![](https://i.postimg.cc/DfL8fsVd/image.png)](https://github.com/wx-chevalier/Frontend-Series)
+
 # Support Library Activity
 
 为了使在旧版手机上依然可以使用譬如 Holo、Material 这样的设计风格，Google 在 Support Library 中推出了多种兼容性的 Activity。

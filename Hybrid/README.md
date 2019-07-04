@@ -1,3 +1,5 @@
+[![](https://i.postimg.cc/DfL8fsVd/image.png)](https://github.com/wx-chevalier/Frontend-Series)
+
 # 混合开发/跨端开发实践
 
 Cordova 的基础是 html 和 js 运行在 webview 容器里面,通过 Cordova 提供的接口与硬件通讯;所以它的效率天生收到限制,而且也受到了各个厂商对 webkit 内核的好坏;比如之前基于国产某 Cloud 的程序,在华为手机上显示就不正常,花费了不少精力修改;

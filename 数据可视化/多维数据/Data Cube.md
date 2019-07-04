@@ -1,3 +1,5 @@
+[![](https://i.postimg.cc/DfL8fsVd/image.png)](https://github.com/wx-chevalier/Frontend-Series)
+
 # Data Cube
 
 Data Cube 的直观理解，即是对于数据不同维度组合而成的某个指标。

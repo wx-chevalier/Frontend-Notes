@@ -1,4 +1,6 @@
-原文地址，[这里](http://omgitsmgp.com/2015/12/02/effective-okhttp/?utm_source=tuicool&utm_medium=referral)
+[![](https://i.postimg.cc/DfL8fsVd/image.png)](https://github.com/wx-chevalier/Frontend-Series)
+
+# 高性能的 OkHttp
 
 [OkHttp](http://square.github.io/okhttp/) 是笔者在为为 [Khan Academy](https://www.khanacademy.org/)开发这个 [Android app](https://play.google.com/store/apps/details?id=org.khanacademy.android)时候的必用库之一。OkHttp 库本身已经提供了非常优秀的功能配置，但是下面是我们在实践中总结出来的一些能够有效增加资源利用率的步骤：
 
@@ -87,13 +89,13 @@ public final class UserAgentInterceptor implements Interceptor {
 
 在构造传入拦截器的具体的 User-Agent 的值时，我们使用了如下信息：
 
-* Android 的版本信息
-* `Build.MODEL`, 或者用户可见的终端产品名
-* `Build.BRAND`
-* `Build.VERSION.SDK_INT`
-* `BuildConfig.APPLICATION_ID`
-* `BuildConfig.VERSION_NAME`
-* `BuildConfig.VERSION_CODE`
+- Android 的版本信息
+- `Build.MODEL`, 或者用户可见的终端产品名
+- `Build.BRAND`
+- `Build.VERSION.SDK_INT`
+- `BuildConfig.APPLICATION_ID`
+- `BuildConfig.VERSION_NAME`
+- `BuildConfig.VERSION_CODE`
 
 最后三个值是 Gradle 文件中包含的版本信息。如果你是使用的 WebView，则可以直接在 WebView 中进行构造：
 
@@ -106,12 +108,12 @@ settings.setUserAgentString(userAgentHeaderValue);
 
 Picasso specifies:
 
-* A connect timeout of 15 seconds.
-* A read timeout of 20 seconds.
-* A write timeout of 20 seconds.
+- A connect timeout of 15 seconds.
+- A read timeout of 20 seconds.
+- A write timeout of 20 seconds.
 
 Whereas Retrofit specifies:
 
-* A connect timeout of 15 seconds.
-* A read timeout of 20 seconds.
-* No write timeout.
+- A connect timeout of 15 seconds.
+- A read timeout of 20 seconds.
+- No write timeout.
