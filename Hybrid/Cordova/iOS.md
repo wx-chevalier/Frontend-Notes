@@ -91,7 +91,7 @@ pod 'Cordova', '~> 4.0.1' # 支持Cordova WebView容器
 
 关于 JS 部分的详细配置可以参考官方的 JS Modules 部分，这里不做赘述，仅展示下基本的用法：
 
-```javascript
+```js
 window.echo = function(str, callback) {
   cordova.exec(
     callback,
@@ -107,7 +107,7 @@ window.echo = function(str, callback) {
 
 调用：
 
-```javascript
+```js
 window.echo("echome", function(echoValue) {
   alert(echoValue == "echome"); // should alert true.
 });

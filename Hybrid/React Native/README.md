@@ -81,7 +81,7 @@ jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"j
 
 譬如我们以 JSX 的语法编写了如下渲染函数：
 
-```javascript
+```js
 render: function() {
   return (
     <View style={styles.container}>
@@ -105,7 +105,7 @@ render: function() {
 
 在 JS 代码载入之前，React 打包器需要首先将 JSX 语法转化为 ES5 的表达式：
 
-```javascript
+```js
 render: function() {
   return (
   	React.createElement(View, {style: styles.container},
@@ -129,40 +129,40 @@ render: function() {
 
 另一些比较常用的语法转换，一个是模块导入时候的结构器，即我们常常见到模块导入：
 
-```javascript
+```js
 var React = require('react-native');
 var { AppRegistry, StyleSheet, Text, TextInput, View } = React;
 ```
 
 上文中的用法即是所谓的解构赋值，一个简单的例子如下：
 
-```javascript
+```js
 var fruits = { banana: 'A banana', orange: 'An orange', apple: 'An apple' };
 var { banana, orange, apple } = fruits;
 ```
 
 那么我们在某个组件中进行导出的时候，就可以用如下语法：
 
-```javascript
+```js
 module.exports.displayName = 'Name';
 module.exports.Component = Component;
 ```
 
 而导入时，即是：
 
-```javascript
+```js
 var { Component } = require('component.js');
 ```
 
 另一个常用的 ES6 的语法即是所谓的 Arrow Function，这有点类似于 Lambda 表达式：
 
-```javascript
+```js
 AppRegistry.registerComponent('HelloWorld', () => HelloWorld);
 ```
 
 会被转化为：
 
-```javascript
+```js
 AppRegistry.registerComponent('HelloWorld', function() {
   return HelloWorld;
 });
@@ -249,7 +249,7 @@ npm install jest-cli --save-dev
 
 可以将 test 脚本加入到 package.son 文件中：
 
-```javascript
+```js
 {
   ...
   "scripts": {
@@ -261,7 +261,7 @@ npm install jest-cli --save-dev
 
 直接使用*npm test*命令直接运行 jest 命令，下面可以创建 tests 文件夹，Jest 会递归搜索 tests 目录中的文件，这些测试文件中的代码如下：
 
-```javascript
+```js
 'use strict';
 
 describe('a silly test', function() {
@@ -273,7 +273,7 @@ describe('a silly test', function() {
 
 而对于一些复杂的应用可以查看 React Native 的官方文档，以其中一个 getImageSource 为例：
 
-```javascript
+```js
 **
  * Taken from https://github.com/facebook/react-native/blob/master/Examples/Movies/__tests__/getImageSource-test.js
  */
