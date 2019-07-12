@@ -34,6 +34,8 @@
 
 # 前言
 
+![](https://tva2.sinaimg.cn/large/007DFXDhgy1g4wxluw2a6j30ku0h9jsw.jpg)
+
 前端开发是一系列技术、实践和机构的综合，它主要由两种力量构成：其一是硬件，或者更具体地说是消费级设备；其二就是对盈利收益的不变追求，这一点与其他所有行业是一致的。
 
 ![](https://tva2.sinaimg.cn/large/007DFXDhgy1g4rc4vwxg1j30u00eagm4.jpg)
