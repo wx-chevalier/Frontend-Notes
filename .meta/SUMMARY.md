@@ -68,12 +68,6 @@
 - [Modbus](../IoT/Modbus/README.md) 
 - [导论](../IoT/导论/README.md) 
 
-## [Specials](../Specials/README.md) 
-
-- [Introduction](../Specials/README.md) 
-
-- [大前端公共知识杂谈](../Specials/大前端公共知识杂谈.md) 
-
 ## [iOS](../iOS/README.md) 
 
 - [Introduction](../iOS/README.md) 
