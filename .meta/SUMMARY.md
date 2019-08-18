@@ -58,6 +58,7 @@
   - [Hybrid 框架比较](../Hybrid/导论/Hybrid 框架比较.md) 
   - [混合开发](../Hybrid/导论/混合开发.md) 
   - [跨端开发](../Hybrid/导论/跨端开发.md) 
+- [小程序](../Hybrid/小程序/README.md) 
 
 ## [IoT](../IoT/README.md) 
 
