@@ -1,5 +1,14 @@
 # Summary 
 
+## [.github](../.github/README.md) 
+
+- [Introduction](../.github/README.md) 
+
+- [ISSUE_TEMPLATE](../.github/ISSUE_TEMPLATE/README.md) 
+  - [bug_report](../.github/ISSUE_TEMPLATE/bug_report.md) 
+  - [custom](../.github/ISSUE_TEMPLATE/custom.md) 
+  - [feature_request](../.github/ISSUE_TEMPLATE/feature_request.md) 
+
 ## [Android](../Android/README.md) 
 
 - [Introduction](../Android/README.md) 
@@ -28,6 +37,11 @@
   - [协议原理](../IoT/MQTT/协议原理.md) 
 - [Modbus](../IoT/Modbus/README.md) 
 - [导论](../IoT/导论/README.md) 
+
+## [MR](../MR/README.md) 
+
+- [Introduction](../MR/README.md) 
+
 
 ## [iOS](../iOS/README.md) 
 
@@ -75,38 +89,7 @@
   - [数据类别](../数据可视化/数据与图表类别/数据类别.md) 
   - [柱状比较类](../数据可视化/数据与图表类别/柱状比较类.md) 
 
-## [混合开发与跨端应用](../混合开发与跨端应用/README.md) 
+## [游戏](../游戏/README.md) 
 
-- [Introduction](../混合开发与跨端应用/README.md) 
+- [Introduction](../游戏/README.md) 
 
-- [Cordova](../混合开发与跨端应用/Cordova/README.md) 
-  - [iOS](../混合开发与跨端应用/Cordova/iOS.md) 
-- [Electron](../混合开发与跨端应用/Electron/README.md) 
-  - [事件处理](../混合开发与跨端应用/Electron/事件处理.md) 
-  - [应用发布](../混合开发与跨端应用/Electron/应用发布.md) 
-  - [开发基础](../混合开发与跨端应用/Electron/开发基础.md) 
-- [Flutter](../混合开发与跨端应用/Flutter/README.md) 
-  - [引擎与运行时](../混合开发与跨端应用/Flutter/引擎与运行时/README.md) 
-- [React Native](../混合开发与跨端应用/React Native/README.md) 
-  - [Expo](../混合开发与跨端应用/React Native/Expo/README.md) 
-  - [工程实践](../混合开发与跨端应用/React Native/工程实践/README.md) 
-    - [调试与测试](../混合开发与跨端应用/React Native/工程实践/调试与测试.md) 
-  - [架构原理](../混合开发与跨端应用/React Native/架构原理/README.md) 
-    - [Bridge](../混合开发与跨端应用/React Native/架构原理/Bridge.md) 
-    - [原理与机制](../混合开发与跨端应用/React Native/架构原理/原理与机制.md) 
-    - [启动流程](../混合开发与跨端应用/React Native/架构原理/启动流程.md) 
-    - [实践技巧](../混合开发与跨端应用/React Native/架构原理/实践技巧.md) 
-  - [组件优化](../混合开发与跨端应用/React Native/组件优化/README.md) 
-    - [ListView](../混合开发与跨端应用/React Native/组件优化/ListView.md) 
-    - [列表优化](../混合开发与跨端应用/React Native/组件优化/列表优化.md) 
-  - [语法基础](../混合开发与跨端应用/React Native/语法基础/README.md) 
-    - [事件与手势](../混合开发与跨端应用/React Native/语法基础/事件与手势.md) 
-    - [布局基础](../混合开发与跨端应用/React Native/语法基础/布局基础.md) 
-    - [环境搭建与工具链](../混合开发与跨端应用/React Native/语法基础/环境搭建与工具链.md) 
-    - [界面开发](../混合开发与跨端应用/React Native/语法基础/界面开发.md) 
-    - [组件基础](../混合开发与跨端应用/React Native/语法基础/组件基础.md) 
-    - [组件基础.old](../混合开发与跨端应用/React Native/语法基础/组件基础.old.md) 
-    - [路由导航](../混合开发与跨端应用/React Native/语法基础/路由导航.md) 
-- [Taro](../混合开发与跨端应用/Taro/README.md) 
-- [Weapp](../混合开发与跨端应用/Weapp/README.md) 
-- [小程序框架](../混合开发与跨端应用/小程序框架/README.md) 
