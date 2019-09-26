@@ -20,15 +20,6 @@
 - [资源处理](../Android/资源处理/README.md) 
   - [字符串](../Android/资源处理/字符串.md) 
 
-## [IoT](../IoT/README.md) 
-
-- [Introduction](../IoT/README.md) 
-
-- [MQTT](../IoT/MQTT/README.md) 
-  - [协议原理](../IoT/MQTT/协议原理.md) 
-- [Modbus](../IoT/Modbus/README.md) 
-- [导论](../IoT/导论/README.md) 
-
 ## [MR](../MR/README.md) 
 
 - [Introduction](../MR/README.md) 
