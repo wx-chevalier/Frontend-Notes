@@ -6,7 +6,7 @@
 
 ## Reference
 
-### Tutorials & Docs
+### Tutorial & Docs
 
 - [Getting Started with Material Design on Android: Toolbar and Navigation Drawer](https://dzone.com/articles/getting-started-with-android-app-and-material-desi)
 
