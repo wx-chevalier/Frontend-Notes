@@ -20,9 +20,20 @@
 - [资源处理](../Android/资源处理/README.md) 
   - [字符串](../Android/资源处理/字符串.md) 
 
+## [IoT](../IoT/README.md) 
+
+- [Introduction](../IoT/README.md) 
+
+- [操作系统](../IoT/操作系统/README.md) 
+
 ## [MR](../MR/README.md) 
 
 - [Introduction](../MR/README.md) 
+
+
+## [Shell 编程](../Shell 编程/README.md) 
+
+- [Introduction](../Shell 编程/README.md) 
 
 
 ## [Web](../Web/README.md) 
@@ -52,6 +63,36 @@
   - [系统进程](../iOS/系统功能/系统进程.md) 
   - [网络请求](../iOS/系统功能/网络请求.md) 
 
+## [内核](../内核/README.md) 
+
+- [Introduction](../内核/README.md) 
+
+
+## [处理器](../处理器/README.md) 
+
+- [Introduction](../处理器/README.md) 
+
+
+## [存储管理](../存储管理/README.md) 
+
+- [Introduction](../存储管理/README.md) 
+
+
+## [导论](../导论/README.md) 
+
+- [Introduction](../导论/README.md) 
+
+
+## [微处理器](../微处理器/README.md) 
+
+- [Introduction](../微处理器/README.md) 
+
+
+## [总线](../总线/README.md) 
+
+- [Introduction](../总线/README.md) 
+
+
 ## [数据可视化](../数据可视化/README.md) 
 
 - [Introduction](../数据可视化/README.md) 
@@ -77,7 +118,67 @@
   - [数据类别](../数据可视化/数据与图表类别/数据类别.md) 
   - [柱状比较类](../数据可视化/数据与图表类别/柱状比较类.md) 
 
+## [文件系统](../文件系统/README.md) 
+
+- [Introduction](../文件系统/README.md) 
+
+
+## [文本处理](../文本处理/README.md) 
+
+- [Introduction](../文本处理/README.md) 
+
+
 ## [游戏](../游戏/README.md) 
 
 - [Introduction](../游戏/README.md) 
+
+
+## [物联网](../物联网/README.md) 
+
+- [Introduction](../物联网/README.md) 
+
+
+## [用户权限](../用户权限/README.md) 
+
+- [Introduction](../用户权限/README.md) 
+
+
+## [磁盘 IO](../磁盘 IO/README.md) 
+
+- [Introduction](../磁盘 IO/README.md) 
+
+
+## [系统服务](../系统服务/README.md) 
+
+- [Introduction](../系统服务/README.md) 
+
+
+## [系统调用](../系统调用/README.md) 
+
+- [Introduction](../系统调用/README.md) 
+
+
+## [网络 IO](../网络 IO/README.md) 
+
+- [Introduction](../网络 IO/README.md) 
+
+
+## [网络配置](../网络配置/README.md) 
+
+- [Introduction](../网络配置/README.md) 
+
+
+## [虚拟存储管理](../虚拟存储管理/README.md) 
+
+- [Introduction](../虚拟存储管理/README.md) 
+
+
+## [设备管理](../设备管理/README.md) 
+
+- [Introduction](../设备管理/README.md) 
+
+
+## [进程管理](../进程管理/README.md) 
+
+- [Introduction](../进程管理/README.md) 
 
