@@ -423,7 +423,7 @@ CollapsingToolbarLayout 提供以下属性和方法是用：
 
 **_总结：_** CollapsingToolbarLayout 主要是提供一个可折叠的 Toolbar 容器，对容器中的不同视图设置 layout_collapseMode 折叠模式，来达到不同的折叠效果。
 
-1.Toolbar 的高度 layout_height 必须固定，不能 “wrap_content”，否则 Toolbar 不会滑动，也没有折叠效果。 2. 为了能让 FloatingActionButton 也能折叠且消失出现，我们必须给 FAB 设置锚点属性 app:layout_anchor="@id/appbar"
+1.Toolbar 的高度 layout_height 必须固定，不能 “wrap_content”，否则 Toolbar 不会滑动，也没有折叠效果。2. 为了能让 FloatingActionButton 也能折叠且消失出现，我们必须给 FAB 设置锚点属性 app:layout_anchor="@id/appbar"
 
 ```
 意思是FAB浮动按钮显示在哪个布局区域。

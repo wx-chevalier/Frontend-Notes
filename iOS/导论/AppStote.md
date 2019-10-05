@@ -10,7 +10,7 @@
 
 ![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/8/2/5B92CF5E-7B97-46C6-8CE6-1EDC12C8BF08.png)
 
-AppStore 的证书与绑定机制对于笔者感觉还是蛮复杂的，不过流程多走即便可能就会清晰很多。首先需要明白的是，在苹果的证书体系中，Certificates 与 Identifiers 是相互独立的，笔者之前经常有个疑问就是最早提交某个 APP 审核的开发者的 P12 丢失了，那后续重新申请的证书还可以用于提交后续版本吗？答案肯定是可以的。一般来说，某个 Certificates+Identifiers 会得到一个 MobileProvision 文件，而该文件就是在进行本地开发、打包上传时所必须的。 ![](http://www.dcloud.io/docs/a/cert/idc_ioscert.png) iOS 有两种证书和描述文件：
+AppStore 的证书与绑定机制对于笔者感觉还是蛮复杂的，不过流程多走即便可能就会清晰很多。首先需要明白的是，在苹果的证书体系中，Certificates 与 Identifiers 是相互独立的，笔者之前经常有个疑问就是最早提交某个 APP 审核的开发者的 P12 丢失了，那后续重新申请的证书还可以用于提交后续版本吗？答案肯定是可以的。一般来说，某个 Certificates+Identifiers 会得到一个 MobileProvision 文件，而该文件就是在进行本地开发、打包上传时所必须的。![](http://www.dcloud.io/docs/a/cert/idc_ioscert.png) iOS 有两种证书和描述文件：
 
 | 证书类型                           | 使用场景          |
 | ---------------------------------- | ----------------- |
@@ -30,7 +30,7 @@ App ID 全名会被追加 Application Identifier Prefix(一般为 TeamID.)，分
 * Explicit App ID ：唯一的 App ID，用于唯一标识一个应用程序。例如 “com.apple.garageband” 这个 App ID，用于标识 Bundle Identifier 为 “com.apple.garageband” 的 App。
 * Wildcard App ID ：含有通配符的 App ID，用于标识一组应用程序。例如 “*”(实际上是 Application Identifier Prefix)表示所有应用程序；而 “com.apple.*” 可以表示 Bundle Identifier 以 “com.apple.” 开头(苹果公司)的所有应用程序。
 
-用户可在 Developer Member Center 网站上注册(Register )或删除(Delete )已注册的 App IDs。App ID **被配置到**【XcodeTarget|Info|Bundle Identifier 】下；对于 Wildcard App ID，只要 bundle identifier 包含其作为 Prefix/Seed 即可。 ![](http://www.dcloud.io/docs/a/cert/id_name.png) ![](http://www.dcloud.io/docs/a/cert/id_id.png)
+用户可在 Developer Member Center 网站上注册(Register )或删除(Delete )已注册的 App IDs。App ID **被配置到**【XcodeTarget|Info|Bundle Identifier 】下；对于 Wildcard App ID，只要 bundle identifier 包含其作为 Prefix/Seed 即可。![](http://www.dcloud.io/docs/a/cert/id_name.png) ![](http://www.dcloud.io/docs/a/cert/id_id.png)
 
 ## Certificates
 
@@ -41,17 +41,17 @@ iOS 证书分为两类：Development 和 Production(Distribution )。
 * Development 证书用来开发和调试应用程序：A **development certificate** identifies you, as a team member, in a development provisioning profile that allows apps signed by you to **launch **on devices.
 * Production 主要用来分发应用程序(根据证书种类有不同作用): A **\*distribution certificate\*** identifies your team or organization in a distribution provisioning profile and allows you to **\*submit \***your app to the store. Only a team agent or an admin can create a distribution certificate.
 
-普通个人开发账号最多可注册 iOS Development/Distribution 证书各 2 个，用户可在网站上删除(Revoke )已注册的 Certificate。Apple 证书颁发机构 WWDRCA(Apple Worldwide Developer Relations Certification Authority) 将使用其 private key 对 CSR 中的 public key 和一些身份信息进行加密签名生成数字证书(ios_development.cer )并记录在案(Apple Member Center )。 ![](http://img.blog.csdn.net/20150412074512682) ![](http://img.blog.csdn.net/20150422073707077)
+普通个人开发账号最多可注册 iOS Development/Distribution 证书各 2 个，用户可在网站上删除(Revoke )已注册的 Certificate。Apple 证书颁发机构 WWDRCA(Apple Worldwide Developer Relations Certification Authority) 将使用其 private key 对 CSR 中的 public key 和一些身份信息进行加密签名生成数字证书(ios_development.cer )并记录在案(Apple Member Center )。![](http://img.blog.csdn.net/20150412074512682) ![](http://img.blog.csdn.net/20150422073707077)
 
 而 P12 文件，正是用于在多台设备间共享证书。在 Keychain Access|Certificates 中选中欲导出的 certificate 或其下 private key，右键 Export 或者通过菜单 File|Export Items 导出 Certificates.p12——PKCS12 file holds the private key and certificate。其 他 Mac 机器上双击 Certificates.p12(如有密码需输入密码)即可安装该共享证书。有了共享证书之后，在开发者网站上将欲调试的 iOS 设备注册到该开发者账号名下，并下载对应证书授权了 iOS 调试设备的 Provisioning Profile 文件，方可在 iOS 真机设备上开发调试。
 
 ## Provision Profiles
 
-Provisioning Profile 文件包含了上述的所有内容：证书、App ID 和 设备 ID。 ![](http://img.blog.csdn.net/20150126225313444) 一个 Provisioning Profile 对应一个 Explicit App ID 或 Wildcard App ID(一组相同 Prefix/Seed 的 App IDs)。在网站上手动创建一个 Provisioning Profile 时，需要依次指定 App ID(单选)、证书(Certificates ，可多选)和设备(Devices ，可多选)。用户可在网站上删除(Delete )已注册的 Provisioning Profiles。Provisioning Profile 决定 Xcode 用哪个证书(公钥)/ 私钥组合(Key Pair/Signing Identity )来签署应用程序(Signing Product )，并将在应用程序打包时嵌入到 .ipa 包里。安装应用程序时，Provisioning Profile 文件被拷贝到 iOS 设备中，运行该 iOS App 的设备通过它来认证安装的程序。如果要打包到真机上运行一个 APP，一般要经历以下三步：
+Provisioning Profile 文件包含了上述的所有内容：证书、App ID 和 设备 ID。![](http://img.blog.csdn.net/20150126225313444) 一个 Provisioning Profile 对应一个 Explicit App ID 或 Wildcard App ID(一组相同 Prefix/Seed 的 App IDs)。在网站上手动创建一个 Provisioning Profile 时，需要依次指定 App ID(单选)、证书(Certificates ，可多选)和设备(Devices ，可多选)。用户可在网站上删除(Delete )已注册的 Provisioning Profiles。Provisioning Profile 决定 Xcode 用哪个证书(公钥)/ 私钥组合(Key Pair/Signing Identity )来签署应用程序(Signing Product )，并将在应用程序打包时嵌入到 .ipa 包里。安装应用程序时，Provisioning Profile 文件被拷贝到 iOS 设备中，运行该 iOS App 的设备通过它来认证安装的程序。如果要打包到真机上运行一个 APP，一般要经历以下三步：
 
 * 首先，需要指明它的 App ID，并且验证 Bundle ID 是否与其一致；
 * 其次，需要证书对应的私钥来进行签名，用于标识这个 APP 是合法、安全、完整的；
-* 然后，如果是真机调试，需要确认这台设备是否授权运行该 APP。 Provisioning Profile 把这些信息全部打包在一起，方便我们在调试和发布程序打包时使用。这样，只要在不同的情况下选择不同的 Provisioning Profile 文件就可以了。Provisioning Profile 也分为 Development 和 Distribution 两类，有效期同 Certificate 一样。Distribution 版本的 ProvisioningProfile 主要用于提交 App Store 审核，其中不指定开发测试的 Devices(0 ， unlimited)。 App ID 为 Wildcard App ID(\* )。App Store 审核通过上架后，允许所有 iOS 设备(Deployment Target )上安装运行该 App。Xcode 将全部供应配置文件(包括用户手动下载安装的和 Xcode 自动创建的 Team Provisioning Profile)放在目录 ~/Library/MobileDevice/Provisioning Profiles 下。
+* 然后，如果是真机调试，需要确认这台设备是否授权运行该 APP。Provisioning Profile 把这些信息全部打包在一起，方便我们在调试和发布程序打包时使用。这样，只要在不同的情况下选择不同的 Provisioning Profile 文件就可以了。Provisioning Profile 也分为 Development 和 Distribution 两类，有效期同 Certificate 一样。Distribution 版本的 ProvisioningProfile 主要用于提交 App Store 审核，其中不指定开发测试的 Devices(0 ， unlimited)。App ID 为 Wildcard App ID(\* )。App Store 审核通过上架后，允许所有 iOS 设备(Deployment Target )上安装运行该 App。Xcode 将全部供应配置文件(包括用户手动下载安装的和 Xcode 自动创建的 Team Provisioning Profile)放在目录 ~/Library/MobileDevice/Provisioning Profiles 下。
 
 ## Xcode 7 免证书调试
 
@@ -71,17 +71,17 @@ Provisioning Profile 文件包含了上述的所有内容：证书、App ID 和 
 
 ## IPv6 Only
 
-首先需要明确一点，在 App Store 审核 APP 的 IPv6-only 的环境下也是可以正常访问 IPv4 的服务的，只是首先由 DNS64 将解析出来的 IPv4 地址转成兼容的 IPv6 地址，然后访问 IPv4 服务时通过 NAT64 网关对 IPv4 和 IPv6 进行 NAT，并不需要客户有实际的 IPv6 服务。如下图所示: ![](http://upload-images.jianshu.io/upload_images/273968-856b69a836ade53a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 客户端在向 DNS64 请求一个域名的 IPv6 地址时，DNS64 会向域名的授权 DNS 请求 IPv6 地址，如果存在 IPv6 地址，则直接给客户端返回 IPv6 地址，如果不存在 IPv6 地址，则向授权请求 IPv4 地址，并将返回的 IPv4 地址转换为兼容的 IPv6 地址。以 Google DNS64 为例说明转换规则，分别请求 dnspod.cn 的 A 记录(IPv4 地址)和 AAAA 记录(IPv6 地址): ![](http://upload-images.jianshu.io/upload_images/273968-b1d11427a1922f10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 从解析结果可以看出 IPv4 地址对应的 IPv6 地址，后 32 位的 3b25:7465 实际上就是 IPv4 地址的 16 进制表示 59=0x3b，37=0x25 ， 116=0x74，101=0x65 ，明白该规则后也可以自己进行 IPv4 向兼容的 IPv6 地址的转换，如 119.29.29.29 的兼容 IPv6 地址为 64:ff9b::771d:1d1d，其中 :: 表示为全 0。 DNS64 解析流程如下图所示: ![](http://upload-images.jianshu.io/upload_images/273968-9afe85bbacad3275.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+首先需要明确一点，在 App Store 审核 APP 的 IPv6-only 的环境下也是可以正常访问 IPv4 的服务的，只是首先由 DNS64 将解析出来的 IPv4 地址转成兼容的 IPv6 地址，然后访问 IPv4 服务时通过 NAT64 网关对 IPv4 和 IPv6 进行 NAT，并不需要客户有实际的 IPv6 服务。如下图所示: ![](http://upload-images.jianshu.io/upload_images/273968-856b69a836ade53a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 客户端在向 DNS64 请求一个域名的 IPv6 地址时，DNS64 会向域名的授权 DNS 请求 IPv6 地址，如果存在 IPv6 地址，则直接给客户端返回 IPv6 地址，如果不存在 IPv6 地址，则向授权请求 IPv4 地址，并将返回的 IPv4 地址转换为兼容的 IPv6 地址。以 Google DNS64 为例说明转换规则，分别请求 dnspod.cn 的 A 记录(IPv4 地址)和 AAAA 记录(IPv6 地址): ![](http://upload-images.jianshu.io/upload_images/273968-b1d11427a1922f10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 从解析结果可以看出 IPv4 地址对应的 IPv6 地址，后 32 位的 3b25:7465 实际上就是 IPv4 地址的 16 进制表示 59=0x3b，37=0x25 ， 116=0x74，101=0x65 ，明白该规则后也可以自己进行 IPv4 向兼容的 IPv6 地址的转换，如 119.29.29.29 的兼容 IPv6 地址为 64:ff9b::771d:1d1d，其中 :: 表示为全 0。DNS64 解析流程如下图所示: ![](http://upload-images.jianshu.io/upload_images/273968-9afe85bbacad3275.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### 搭建 IPv6 测试环境
 
-用 Mac 做一个热点，然后用 iPhone 连接这个 Wi-Fi，在 “System Preferences” 界面选中 “Sharing” 的同时，要按住 “Option” 键。 ![](http://upload-images.jianshu.io/upload_images/841355-bd2a25d779153e4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 之后在 “Sharing” 界面中，我们会看到和之前不一样的地方，就是红框所标的地方，多了一个叫 “Create NAT64 Network” 的选框，选中它。 ![](http://upload-images.jianshu.io/upload_images/841355-8e5aa1eac3c24a8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+用 Mac 做一个热点，然后用 iPhone 连接这个 Wi-Fi，在 “System Preferences” 界面选中 “Sharing” 的同时，要按住 “Option” 键。![](http://upload-images.jianshu.io/upload_images/841355-bd2a25d779153e4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 之后在 “Sharing” 界面中，我们会看到和之前不一样的地方，就是红框所标的地方，多了一个叫 “Create NAT64 Network” 的选框，选中它。![](http://upload-images.jianshu.io/upload_images/841355-8e5aa1eac3c24a8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## 开发修正
 
 ### 避免使用底层的网络 API
 
-下图展示的蓝色部分的这些 API 都是不存在兼容性问题的，而我们平时自己用的包括那些第三方的网络库大部分都是用的这些 API。 ![](http://upload-images.jianshu.io/upload_images/1196725-d7c683dce4c7b70f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 大部分情况下，我们用高级的 API 完全能够实现我们的需求，而且高级 API 封装的很便于使用，很多底层的像适配 IPv6 的工作都已经帮我们做好了。而用底层 API 会有大量的工作要我们自己来做，更容易产生 bug。但你如果确实需要用底层的 POSIX socket API, 请参照这个 RFC4038: Application Aspects of IPv6 Transition 的指导。
+下图展示的蓝色部分的这些 API 都是不存在兼容性问题的，而我们平时自己用的包括那些第三方的网络库大部分都是用的这些 API。![](http://upload-images.jianshu.io/upload_images/1196725-d7c683dce4c7b70f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 大部分情况下，我们用高级的 API 完全能够实现我们的需求，而且高级 API 封装的很便于使用，很多底层的像适配 IPv6 的工作都已经帮我们做好了。而用底层 API 会有大量的工作要我们自己来做，更容易产生 bug。但你如果确实需要用底层的 POSIX socket API, 请参照这个 RFC4038: Application Aspects of IPv6 Transition 的指导。
 
 ### 避免直接使用 IP 地址
 

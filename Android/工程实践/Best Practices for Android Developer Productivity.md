@@ -2,11 +2,11 @@
 
 > [原文地址](https://medium.com/@sergii/best-practices-for-android-developer-productivity-cfd6ffba804c#.bp2tjpwt0)
 
-软件工程师的工作效率不仅依赖于知识的掌握程度与经验，也会依赖于你选择的工具集合、合适的环境配置以及团队内的合作技巧。本文即是作者在[Droidcon Berlin](http://droidcon.de/en/sessions/effective-android-development)上演讲的总结。 ![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/4/1-e7X-rfqUmez-yI_DdsyOCw.jpeg)
+软件工程师的工作效率不仅依赖于知识的掌握程度与经验，也会依赖于你选择的工具集合、合适的环境配置以及团队内的合作技巧。本文即是作者在[Droidcon Berlin](http://droidcon.de/en/sessions/effective-android-development)上演讲的总结。![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/4/1-e7X-rfqUmez-yI_DdsyOCw.jpeg)
 
 # 看穿你的 AndroidManifest
 
-众所周知，我们开发时候在文本编辑器中看到的`AndroidManifest.xml`并非最终打包到应用中的`AndroidManifest.xml`文件。在打包时，编译器会自动地将你所使用的第三方依赖库中的譬如`<uses-permission/>`这些元素从它们自己的 Manifests 文件中抽取出来然后统一在主入口的`AndroidManifest.xml`文件中声明，关于这部分的详细说明可以参考[这里](https://commonsware.com/blog/2015/06/25/hey-where-did-these-permissions-come-from.html)。 Android Studio 2.2 中提供了一个新特性，[Merged Manifest Viewer](http://android-developers.blogspot.de/2016/05/android-studio-22-preview-new-ui.html)可以用于预览在 APK 构建之后最终生成的`AndroidManifest.xml`文件，该文件中会包含项目依赖中声明的构建类型、变量等等信息。 ![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/4/0-wZiAP9ouYyAaY-_x.png)
+众所周知，我们开发时候在文本编辑器中看到的`AndroidManifest.xml`并非最终打包到应用中的`AndroidManifest.xml`文件。在打包时，编译器会自动地将你所使用的第三方依赖库中的譬如`<uses-permission/>`这些元素从它们自己的 Manifests 文件中抽取出来然后统一在主入口的`AndroidManifest.xml`文件中声明，关于这部分的详细说明可以参考[这里](https://commonsware.com/blog/2015/06/25/hey-where-did-these-permissions-come-from.html)。Android Studio 2.2 中提供了一个新特性，[Merged Manifest Viewer](http://android-developers.blogspot.de/2016/05/android-studio-22-preview-new-ui.html)可以用于预览在 APK 构建之后最终生成的`AndroidManifest.xml`文件，该文件中会包含项目依赖中声明的构建类型、变量等等信息。![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/4/0-wZiAP9ouYyAaY-_x.png)
 
 # 好好使用 Support Annotations
 
