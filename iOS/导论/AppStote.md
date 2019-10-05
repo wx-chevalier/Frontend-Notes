@@ -2,7 +2,7 @@
 
 ## Reference
 
-* [ipv6, 后台定位等审核问题的终极解决方案汇总](https://github.com/wg689/Solve-App-Store-Review-Problem)
+- [ipv6, 后台定位等审核问题的终极解决方案汇总](https://github.com/wg689/Solve-App-Store-Review-Problem)
 
 # 证书
 
