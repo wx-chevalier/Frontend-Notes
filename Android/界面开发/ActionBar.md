@@ -274,7 +274,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 # AppBar Layout
 
-> [Android Material Design 之 Toolbar 与 Palette 实践 ](http://blog.csdn.net/jdsjlzx/article/details/41441083)
+- [Android Material Design 之 Toolbar 与 Palette 实践 ](http://blog.csdn.net/jdsjlzx/article/details/41441083)
 
 AppBarLayout 是继承 LinerLayout 实现的一个 ViewGroup 容器组件，它是为了 Material Design 设计的 App Bar，支持手势滑动操作。
 
