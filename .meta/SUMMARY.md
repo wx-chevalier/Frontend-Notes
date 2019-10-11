@@ -59,6 +59,8 @@
 - [Canvas](../数据可视化/Canvas/README.md) 
   - [图片处理](../数据可视化/Canvas/图片处理.md) 
 - [SVG](../数据可视化/SVG/README.md) 
+  - [动画](../数据可视化/SVG/动画.md) 
+  - [图形](../数据可视化/SVG/图形.md) 
 - [Three.js](../数据可视化/Three.js/README.md) 
 - [WebGL](../数据可视化/WebGL/README.md) 
 - [二维绘图](../数据可视化/二维绘图/README.md) 
