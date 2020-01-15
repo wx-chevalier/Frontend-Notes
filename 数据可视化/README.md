@@ -1,6 +1,6 @@
 # 数据可视化与 BI
 
-[大数据汇聚](https://ngte-infras.gitbook.io/i/?q=大数据)、[数据处理与分析](https://ngte-aidl.gitbook.io/?q=数据处理)、[数据可视化](https://url.wx-coder.cn/xlPJH)这三者构成了数据科学的主要流程，本篇数据可视化更多地关注于数据展示相关的技术知识。
+[大数据汇聚](https://ng-tech.icu/DistributedSystem-Series/#/?q=大数据)、[数据处理与分析](https://ngte-aidl.gitbook.io/?q=数据处理)、[数据可视化](https://url.wx-coder.cn/xlPJH)这三者构成了数据科学的主要流程，本篇数据可视化更多地关注于数据展示相关的技术知识。
 
 # 可视化定义
 
