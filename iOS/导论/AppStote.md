@@ -51,7 +51,7 @@ Provisioning Profile 文件包含了上述的所有内容：证书、App ID 和 
 
 * 首先，需要指明它的 App ID，并且验证 Bundle ID 是否与其一致；
 * 其次，需要证书对应的私钥来进行签名，用于标识这个 APP 是合法、安全、完整的；
-* 然后，如果是真机调试，需要确认这台设备是否授权运行该 APP。Provisioning Profile 把这些信息全部打包在一起，方便我们在调试和发布程序打包时使用。这样，只要在不同的情况下选择不同的 Provisioning Profile 文件就可以了。Provisioning Profile 也分为 Development 和 Distribution 两类，有效期同 Certificate 一样。Distribution 版本的 ProvisioningProfile 主要用于提交 App Store 审核，其中不指定开发测试的 Devices(0 ， unlimited)。App ID 为 Wildcard App ID(\* )。App Store 审核通过上架后，允许所有 iOS 设备(Deployment Target )上安装运行该 App。Xcode 将全部供应配置文件(包括用户手动下载安装的和 Xcode 自动创建的 Team Provisioning Profile)放在目录 ~/Library/MobileDevice/Provisioning Profiles 下。
+* 然后，如果是真机调试，需要确认这台设备是否授权运行该 APP。Provisioning Profile 把这些信息全部打包在一起，方便我们在调试和发布程序打包时使用。这样，只要在不同的情况下选择不同的 Provisioning Profile 文件就可以了。Provisioning Profile 也分为 Development 和 Distribution 两类，有效期同 Certificate 一样。Distribution 版本的 ProvisioningProfile 主要用于提交 App Store 审核，其中不指定开发测试的 Devices(0 ，unlimited)。App ID 为 Wildcard App ID(\* )。App Store 审核通过上架后，允许所有 iOS 设备(Deployment Target )上安装运行该 App。Xcode 将全部供应配置文件(包括用户手动下载安装的和 Xcode 自动创建的 Team Provisioning Profile)放在目录 ~/Library/MobileDevice/Provisioning Profiles 下。
 
 ## Xcode 7 免证书调试
 
@@ -71,7 +71,7 @@ Provisioning Profile 文件包含了上述的所有内容：证书、App ID 和 
 
 ## IPv6 Only
 
-首先需要明确一点，在 App Store 审核 APP 的 IPv6-only 的环境下也是可以正常访问 IPv4 的服务的，只是首先由 DNS64 将解析出来的 IPv4 地址转成兼容的 IPv6 地址，然后访问 IPv4 服务时通过 NAT64 网关对 IPv4 和 IPv6 进行 NAT，并不需要客户有实际的 IPv6 服务。如下图所示: ![](http://upload-images.jianshu.io/upload_images/273968-856b69a836ade53a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 客户端在向 DNS64 请求一个域名的 IPv6 地址时，DNS64 会向域名的授权 DNS 请求 IPv6 地址，如果存在 IPv6 地址，则直接给客户端返回 IPv6 地址，如果不存在 IPv6 地址，则向授权请求 IPv4 地址，并将返回的 IPv4 地址转换为兼容的 IPv6 地址。以 Google DNS64 为例说明转换规则，分别请求 dnspod.cn 的 A 记录(IPv4 地址)和 AAAA 记录(IPv6 地址): ![](http://upload-images.jianshu.io/upload_images/273968-b1d11427a1922f10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 从解析结果可以看出 IPv4 地址对应的 IPv6 地址，后 32 位的 3b25:7465 实际上就是 IPv4 地址的 16 进制表示 59=0x3b，37=0x25 ， 116=0x74，101=0x65 ，明白该规则后也可以自己进行 IPv4 向兼容的 IPv6 地址的转换，如 119.29.29.29 的兼容 IPv6 地址为 64:ff9b::771d:1d1d，其中 :: 表示为全 0。DNS64 解析流程如下图所示: ![](http://upload-images.jianshu.io/upload_images/273968-9afe85bbacad3275.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+首先需要明确一点，在 App Store 审核 APP 的 IPv6-only 的环境下也是可以正常访问 IPv4 的服务的，只是首先由 DNS64 将解析出来的 IPv4 地址转成兼容的 IPv6 地址，然后访问 IPv4 服务时通过 NAT64 网关对 IPv4 和 IPv6 进行 NAT，并不需要客户有实际的 IPv6 服务。如下图所示: ![](http://upload-images.jianshu.io/upload_images/273968-856b69a836ade53a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 客户端在向 DNS64 请求一个域名的 IPv6 地址时，DNS64 会向域名的授权 DNS 请求 IPv6 地址，如果存在 IPv6 地址，则直接给客户端返回 IPv6 地址，如果不存在 IPv6 地址，则向授权请求 IPv4 地址，并将返回的 IPv4 地址转换为兼容的 IPv6 地址。以 Google DNS64 为例说明转换规则，分别请求 dnspod.cn 的 A 记录(IPv4 地址)和 AAAA 记录(IPv6 地址): ![](http://upload-images.jianshu.io/upload_images/273968-b1d11427a1922f10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 从解析结果可以看出 IPv4 地址对应的 IPv6 地址，后 32 位的 3b25:7465 实际上就是 IPv4 地址的 16 进制表示 59=0x3b，37=0x25 ，116=0x74，101=0x65 ，明白该规则后也可以自己进行 IPv4 向兼容的 IPv6 地址的转换，如 119.29.29.29 的兼容 IPv6 地址为 64:ff9b::771d:1d1d，其中 :: 表示为全 0。DNS64 解析流程如下图所示: ![](http://upload-images.jianshu.io/upload_images/273968-9afe85bbacad3275.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### 搭建 IPv6 测试环境
 
