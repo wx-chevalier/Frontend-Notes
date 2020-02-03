@@ -1,11 +1,9 @@
-[![](https://i.postimg.cc/DfL8fsVd/image.png)](https://github.com/wx-chevalier/Frontend-Series)
-
 # WebGL
 
 ```js
-const canvas = document.getElementById('container');
+const canvas = document.getElementById("container");
 const gl =
-  canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
 gl.clearColor(0.0, 0.0, 0.0, 1.0); // 指定清空canvas的颜色
 gl.clear(gl.COLOR_BUFFER_BIT); // 清空canvas
 ```
@@ -52,9 +50,9 @@ function initShader(gl) {
 }
 
 function main() {
-  var canvas = document.getElementById('container');
+  var canvas = document.getElementById("container");
   var gl =
-    canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
   initShader(gl); // 初始化着色器
   gl.clearColor(0.0, 0.0, 0.0, 1.0); // 指定清空canvas的颜色
   gl.clear(gl.COLOR_BUFFER_BIT); // 清空canvas

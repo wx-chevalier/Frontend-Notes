@@ -1,4 +1,4 @@
-[![](https://i.postimg.cc/DfL8fsVd/image.png)](https://github.com/wx-chevalier/Frontend-Series)
+
 
 - [原文地址](https://medium.com/@sergii/best-practices-for-android-developer-productivity-cfd6ffba804c#.bp2tjpwt0)
 

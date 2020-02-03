@@ -1,4 +1,4 @@
-[![](https://i.postimg.cc/DfL8fsVd/image.png)](https://github.com/wx-chevalier/Frontend-Series)
+
 
 # 高性能的 OkHttp
 

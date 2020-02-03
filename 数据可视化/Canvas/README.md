@@ -1,5 +1,3 @@
-[![](https://i.postimg.cc/DfL8fsVd/image.png)](https://github.com/wx-chevalier/Frontend-Series)
-
 # Canvas & WebGL
 
 SVG 只是一种矢量图形文件格式，不仅现在的浏览器都支持，很多主流的系统也都支持。可以代替一些图片,多用于图标,以及图表上,优势在于拥有 HTML 的 event 事件,交互起来很方便。
@@ -21,9 +19,9 @@ Canvas（翻译为画布）是 HTML5 的一个标签，Canvas 可以使用 JavaS
 ```
 
 ```js
-const canvas = document.getElementById('container');
-const context = canvas.getContext('2d');
-context.fillStyle = 'rgba(0, 0, 255, 1.0)';
+const canvas = document.getElementById("container");
+const context = canvas.getContext("2d");
+context.fillStyle = "rgba(0, 0, 255, 1.0)";
 context.fillRect(120, 10, 150, 150);
 ```
 
