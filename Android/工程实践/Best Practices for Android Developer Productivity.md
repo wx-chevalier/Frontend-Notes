@@ -1,5 +1,3 @@
-
-
 - [原文地址](https://medium.com/@sergii/best-practices-for-android-developer-productivity-cfd6ffba804c#.bp2tjpwt0)
 
 软件工程师的工作效率不仅依赖于知识的掌握程度与经验，也会依赖于你选择的工具集合、合适的环境配置以及团队内的合作技巧。本文即是作者在[Droidcon Berlin](http://droidcon.de/en/sessions/effective-android-development)上演讲的总结。![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/4/1-e7X-rfqUmez-yI_DdsyOCw.jpeg)

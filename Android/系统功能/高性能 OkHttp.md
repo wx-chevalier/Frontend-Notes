@@ -1,5 +1,3 @@
-
-
 # 高性能的 OkHttp
 
 [OkHttp](http://square.github.io/okhttp/) 是笔者在为为 [Khan Academy](https://www.khanacademy.org/)开发这个 [Android app](https://play.google.com/store/apps/details?id=org.khanacademy.android)时候的必用库之一。OkHttp 库本身已经提供了非常优秀的功能配置，但是下面是我们在实践中总结出来的一些能够有效增加资源利用率的步骤：
@@ -72,16 +70,18 @@ public final class UserAgentInterceptor implements Interceptor {
   private final String userAgentHeaderValue;
 
   public UserAgentInterceptor(String userAgentHeaderValue) {
-    this.userAgentHeaderValue = Preconditions.checkNotNull(userAgentHeaderValue);
+    this.userAgentHeaderValue =
+      Preconditions.checkNotNull(userAgentHeaderValue);
   }
 
   @Override
   public Response intercept(Chain chain) throws IOException {
     final Request originalRequest = chain.request();
-    final Request requestWithUserAgent = originalRequest.newBuilder()
-        .removeHeader(USER_AGENT_HEADER_NAME)
-        .addHeader(USER_AGENT_HEADER_NAME, userAgentHeaderValue)
-        .build();
+    final Request requestWithUserAgent = originalRequest
+      .newBuilder()
+      .removeHeader(USER_AGENT_HEADER_NAME)
+      .addHeader(USER_AGENT_HEADER_NAME, userAgentHeaderValue)
+      .build();
     return chain.proceed(requestWithUserAgent);
   }
 }

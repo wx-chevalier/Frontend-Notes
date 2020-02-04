@@ -2,15 +2,15 @@
 
 ## Enable HealthKit
 
-如果希望在应用程序中使用HealthKit，首先需要在生成证书的时候勾选HealthKit选项。
+如果希望在应用程序中使用 HealthKit，首先需要在生成证书的时候勾选 HealthKit 选项。
 
 ![](http://jademind.com/wp-content/uploads/2014/11/healthkit_enable_capability.png)
 
-## Check availability(检查HealthKit可用性)
+## Check availability(检查 HealthKit 可用性)
 
-考虑到目前HealthKit仅仅可以在iPhone设备上使用，不能在iPad或者iPod中使用，所以在接入HealthKit代码之前最好检验下可用性：
+考虑到目前 HealthKit 仅仅可以在 iPhone 设备上使用，不能在 iPad 或者 iPod 中使用，所以在接入 HealthKit 代码之前最好检验下可用性：
 
-``` objective-c
+```objective-c
 if(NSClassFromString(@"HKHealthStore") && [HKHealthStore isHealthDataAvailable])
 {
    // Add your HealthKit code here
@@ -19,9 +19,9 @@ if(NSClassFromString(@"HKHealthStore") && [HKHealthStore isHealthDataAvailable])
 
 ## Request authorization(请求授权)
 
-由于HealthKit存储了大量的用户敏感信息，App如果需要访问HealthKit中的数据，首先需要请求用户权限。权限分为读取与读写权限(苹果将读写权限称为share)。请求权限还是比较简单的，可以直接使用[`requestAuthorizationToShareTypes: readTypes: completion:`](https://developer.apple.com/library/ios/DOCUMENTATION/HealthKit/Reference/HKHealthStore_Class/index.html#//apple_ref/occ/instm/HKHealthStore/requestAuthorizationToShareTypes:readTypes:completion:) 方法。
+由于 HealthKit 存储了大量的用户敏感信息，App 如果需要访问 HealthKit 中的数据，首先需要请求用户权限。权限分为读取与读写权限(苹果将读写权限称为 share)。请求权限还是比较简单的，可以直接使用[`requestAuthorizationToShareTypes: readTypes: completion:`](https://developer.apple.com/library/ios/DOCUMENTATION/HealthKit/Reference/HKHealthStore_Class/index.html#//apple_ref/occ/instm/HKHealthStore/requestAuthorizationToShareTypes:readTypes:completion:) 方法。
 
-``` objective-c
+```objective-c
 HKHealthStore *healthStore = [[HKHealthStore alloc] init];
 
 // Share body mass, height and body mass index
@@ -62,17 +62,15 @@ NSSet *readObjectTypes  = [NSSet setWithObjects:
 
 用户在该界面上可以选择接受或者拒绝某些对于读写健康数据的请求。在确定或者关闭请求界面之后，回调会被自动调用。
 
-
-
 # 读写数据
 
-从Health Store中读写数据的方法比较直接，HKHealthStore类是提供了很多便捷的方法读取基本的属性。不过如果需要以更多复杂的方式进行查询，可以使用相关的子类：HKQuery。
+从 Health Store 中读写数据的方法比较直接，HKHealthStore 类是提供了很多便捷的方法读取基本的属性。不过如果需要以更多复杂的方式进行查询，可以使用相关的子类：HKQuery。
 
 ## 生理数据
 
 ### 性别与年龄
 
-``` objective-c
+```objective-c
 NSError *error;
 HKBiologicalSexObject *bioSex = [healthStore biologicalSexWithError:&error];
 
@@ -91,7 +89,7 @@ switch (bioSex.biologicalSex) {
 
 ### 体重
 
-``` objective-c
+```objective-c
 // Some weight in gram
 double weightInGram = 83400.f;
 
@@ -114,17 +112,15 @@ HKQuantitySample *weightSample = [HKQuantitySample quantitySampleWithType:hkQuan
 }];
 ```
 
-
-
 ## 运动数据
 
-运动数据查询时往往进行的是统计类型的查询，即查询某几个小时或者某几天的运动数据情况，此时最常用的工具类即是HKStatisticsQuery。要使用该类，首先是调用```initWithQuantityType:quantitySamplePredicate:options:completionHandler:```方法进行初始化，然后使用[executeQuery:](https://developer.apple.com/library/prerelease/ios/documentation/HealthKit/Reference/HKHealthStore_Class/index.html#//apple_ref/occ/instm/HKHealthStore/executeQuery:)方法进行查询。
+运动数据查询时往往进行的是统计类型的查询，即查询某几个小时或者某几天的运动数据情况，此时最常用的工具类即是 HKStatisticsQuery。要使用该类，首先是调用`initWithQuantityType:quantitySamplePredicate:options:completionHandler:`方法进行初始化，然后使用[executeQuery:](https://developer.apple.com/library/prerelease/ios/documentation/HealthKit/Reference/HKHealthStore_Class/index.html#//apple_ref/occ/instm/HKHealthStore/executeQuery:)方法进行查询。
 
 ### 步数与卡路里
 
 - Objective-C
 
-``` objective-c
+```objective-c
 - (void)fetchTotalJoulesConsumedWithCompletionHandler:(void (^)(double, NSError *))completionHandler {
     NSCalendar *calendar = [NSCalendar currentCalendar];
 
@@ -159,7 +155,7 @@ HKQuantitySample *weightSample = [HKQuantitySample quantitySampleWithType:hkQuan
 
 - Swift
 
-``` swift
+```swift
 func fetchTotalJoulesConsumedWithCompletionHandler(
     completionHandler:(Double?, NSError?)->()) {
 
@@ -202,16 +198,14 @@ func fetchTotalJoulesConsumedWithCompletionHandler(
 }
 ```
 
-注意，在根据时间来获取HealthKit的记录值时，往往存在着一个时区的问题。即HealthKit默认的是用的UTC时间来进行计数的，虽然它显示的是本地时间。而我们一般对时区进行本地化时，只是将NSDate的数值变化了，并不一定会修正它所在的时区，笔者用的方法所在时区还是UTC。所以，可能需要先求出起始时间的TimeInterval，然后统一用UTC时间计算：
+注意，在根据时间来获取 HealthKit 的记录值时，往往存在着一个时区的问题。即 HealthKit 默认的是用的 UTC 时间来进行计数的，虽然它显示的是本地时间。而我们一般对时区进行本地化时，只是将 NSDate 的数值变化了，并不一定会修正它所在的时区，笔者用的方法所在时区还是 UTC。所以，可能需要先求出起始时间的 TimeInterval，然后统一用 UTC 时间计算：
 
-``` objective-c
+```objective-c
     startDate = [[NSDate alloc] initWithTimeIntervalSinceNow:- [endDate timeIntervalSinceDate:startDate]];
-    
+
     endDate = [[NSDate alloc] init];
 ```
 
 # [CareKit](https://github.com/carekit-apple/CareKit)
 
 ![](https://github.com/carekit-apple/CareKit/wiki/AddedBinaries.png)
-
-

@@ -6,7 +6,7 @@
 
 # 证书
 
->[ iOS Provisioning Profile(Certificate) 与 Code Signing 详解 ](http://blog.csdn.net/phunxm/article/details/42685597/)
+> [ iOS Provisioning Profile(Certificate) 与 Code Signing 详解 ](http://blog.csdn.net/phunxm/article/details/42685597/)
 
 ![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/8/2/5B92CF5E-7B97-46C6-8CE6-1EDC12C8BF08.png)
 
@@ -27,8 +27,8 @@ App ID 字符串通常以**反域名**(reverse-domain-name )格式的 Company Id
 
 App ID 全名会被追加 Application Identifier Prefix(一般为 TeamID.)，分为两类：
 
-* Explicit App ID ：唯一的 App ID，用于唯一标识一个应用程序。例如 “com.apple.garageband” 这个 App ID，用于标识 Bundle Identifier 为 “com.apple.garageband” 的 App。
-* Wildcard App ID ：含有通配符的 App ID，用于标识一组应用程序。例如 “*”(实际上是 Application Identifier Prefix)表示所有应用程序；而 “com.apple.*” 可以表示 Bundle Identifier 以 “com.apple.” 开头(苹果公司)的所有应用程序。
+- Explicit App ID ：唯一的 App ID，用于唯一标识一个应用程序。例如 “com.apple.garageband” 这个 App ID，用于标识 Bundle Identifier 为 “com.apple.garageband” 的 App。
+- Wildcard App ID ：含有通配符的 App ID，用于标识一组应用程序。例如 “_”(实际上是 Application Identifier Prefix)表示所有应用程序；而 “com.apple._” 可以表示 Bundle Identifier 以 “com.apple.” 开头(苹果公司)的所有应用程序。
 
 用户可在 Developer Member Center 网站上注册(Register )或删除(Delete )已注册的 App IDs。App ID **被配置到**【XcodeTarget|Info|Bundle Identifier 】下；对于 Wildcard App ID，只要 bundle identifier 包含其作为 Prefix/Seed 即可。![](http://www.dcloud.io/docs/a/cert/id_name.png) ![](http://www.dcloud.io/docs/a/cert/id_id.png)
 
@@ -38,8 +38,8 @@ iOS 证书是用来证明 iOS App 内容(bundle with executable and resources )�
 
 iOS 证书分为两类：Development 和 Production(Distribution )。
 
-* Development 证书用来开发和调试应用程序：A **development certificate** identifies you, as a team member, in a development provisioning profile that allows apps signed by you to **launch **on devices.
-* Production 主要用来分发应用程序(根据证书种类有不同作用): A **\*distribution certificate\*** identifies your team or organization in a distribution provisioning profile and allows you to **\*submit \***your app to the store. Only a team agent or an admin can create a distribution certificate.
+- Development 证书用来开发和调试应用程序：A **development certificate** identifies you, as a team member, in a development provisioning profile that allows apps signed by you to **launch **on devices.
+- Production 主要用来分发应用程序(根据证书种类有不同作用): A **\*distribution certificate\*** identifies your team or organization in a distribution provisioning profile and allows you to **\*submit \***your app to the store. Only a team agent or an admin can create a distribution certificate.
 
 普通个人开发账号最多可注册 iOS Development/Distribution 证书各 2 个，用户可在网站上删除(Revoke )已注册的 Certificate。Apple 证书颁发机构 WWDRCA(Apple Worldwide Developer Relations Certification Authority) 将使用其 private key 对 CSR 中的 public key 和一些身份信息进行加密签名生成数字证书(ios_development.cer )并记录在案(Apple Member Center )。![](http://img.blog.csdn.net/20150412074512682) ![](http://img.blog.csdn.net/20150422073707077)
 
@@ -49,9 +49,9 @@ iOS 证书分为两类：Development 和 Production(Distribution )。
 
 Provisioning Profile 文件包含了上述的所有内容：证书、App ID 和 设备 ID。![](http://img.blog.csdn.net/20150126225313444) 一个 Provisioning Profile 对应一个 Explicit App ID 或 Wildcard App ID(一组相同 Prefix/Seed 的 App IDs)。在网站上手动创建一个 Provisioning Profile 时，需要依次指定 App ID(单选)、证书(Certificates ，可多选)和设备(Devices ，可多选)。用户可在网站上删除(Delete )已注册的 Provisioning Profiles。Provisioning Profile 决定 Xcode 用哪个证书(公钥)/ 私钥组合(Key Pair/Signing Identity )来签署应用程序(Signing Product )，并将在应用程序打包时嵌入到 .ipa 包里。安装应用程序时，Provisioning Profile 文件被拷贝到 iOS 设备中，运行该 iOS App 的设备通过它来认证安装的程序。如果要打包到真机上运行一个 APP，一般要经历以下三步：
 
-* 首先，需要指明它的 App ID，并且验证 Bundle ID 是否与其一致；
-* 其次，需要证书对应的私钥来进行签名，用于标识这个 APP 是合法、安全、完整的；
-* 然后，如果是真机调试，需要确认这台设备是否授权运行该 APP。Provisioning Profile 把这些信息全部打包在一起，方便我们在调试和发布程序打包时使用。这样，只要在不同的情况下选择不同的 Provisioning Profile 文件就可以了。Provisioning Profile 也分为 Development 和 Distribution 两类，有效期同 Certificate 一样。Distribution 版本的 ProvisioningProfile 主要用于提交 App Store 审核，其中不指定开发测试的 Devices(0 ，unlimited)。App ID 为 Wildcard App ID(\* )。App Store 审核通过上架后，允许所有 iOS 设备(Deployment Target )上安装运行该 App。Xcode 将全部供应配置文件(包括用户手动下载安装的和 Xcode 自动创建的 Team Provisioning Profile)放在目录 ~/Library/MobileDevice/Provisioning Profiles 下。
+- 首先，需要指明它的 App ID，并且验证 Bundle ID 是否与其一致；
+- 其次，需要证书对应的私钥来进行签名，用于标识这个 APP 是合法、安全、完整的；
+- 然后，如果是真机调试，需要确认这台设备是否授权运行该 APP。Provisioning Profile 把这些信息全部打包在一起，方便我们在调试和发布程序打包时使用。这样，只要在不同的情况下选择不同的 Provisioning Profile 文件就可以了。Provisioning Profile 也分为 Development 和 Distribution 两类，有效期同 Certificate 一样。Distribution 版本的 ProvisioningProfile 主要用于提交 App Store 审核，其中不指定开发测试的 Devices(0 ，unlimited)。App ID 为 Wildcard App ID(\* )。App Store 审核通过上架后，允许所有 iOS 设备(Deployment Target )上安装运行该 App。Xcode 将全部供应配置文件(包括用户手动下载安装的和 Xcode 自动创建的 Team Provisioning Profile)放在目录 ~/Library/MobileDevice/Provisioning Profiles 下。
 
 ## Xcode 7 免证书调试
 
@@ -65,7 +65,7 @@ Provisioning Profile 文件包含了上述的所有内容：证书、App ID 和 
 
 # IPv6 Issue
 
->[针对苹果 iOS 最新审核要求为应用兼容 IPv6](http://www.jianshu.com/p/54b989098537)
+> [针对苹果 iOS 最新审核要求为应用兼容 IPv6](http://www.jianshu.com/p/54b989098537)
 
 自 2016 年 6 月 1 日起，苹果要求所有提交 App Store 的 iOS 应用必须支持 IPv6-only 环境，背景也是众所周知的，IPv4 地址已基本分配完毕，同时 IPv6 比 IPv4 也更加高效，向 IPv6 过渡是大势所趋。
 
