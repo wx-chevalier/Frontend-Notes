@@ -14,7 +14,7 @@
 
 ## 跨端混合开发
 
-Hybrid 技术分为两个大的分支，一个以 Cordova 为代表的基于系统的 WebView 与本地调用。另一种早期以 Titanium、Tamarin ，如今以 React Native 这样为代表的 Cross Compilation，即跨平台编译技术。因为每个平台都有浏览器，也都有 WebView 控件，所以我们可以使用 HTML，CSS 和 JavaScript 来将 web 的内容和体验搬到本地。通过这样做我们可以将逻辑和 UI 渲染部分都统一，以减少开发和维护成本。这种方式开发的 app 一般被称为 [Hybrid app](http://blogs.telerik.com/appbuilder/posts/12-06-14/what-is-a-hybrid-mobile-app-)，像 [PhoneGap](http://phonegap.com) 或者 [Cordova](http://cordova.apache.org) 这样的解决方案就是典型的应用。除了使用前端开发的一套技巧来构建页面和交互以外，一般这类框架还会提供一些访问设备的接口，比如相机和 GPS 等。
+Hybrid 技术分为两个大的分支，一个以 Cordova 为代表的基于系统的 WebView 与本地调用。另一种早期以 Titanium、Tamarin，如今以 React Native 这样为代表的 Cross Compilation，即跨平台编译技术。因为每个平台都有浏览器，也都有 WebView 控件，所以我们可以使用 HTML，CSS 和 JavaScript 来将 web 的内容和体验搬到本地。通过这样做我们可以将逻辑和 UI 渲染部分都统一，以减少开发和维护成本。这种方式开发的 app 一般被称为 [Hybrid app](http://blogs.telerik.com/appbuilder/posts/12-06-14/what-is-a-hybrid-mobile-app-)，像 [PhoneGap](http://phonegap.com) 或者 [Cordova](http://cordova.apache.org) 这样的解决方案就是典型的应用。除了使用前端开发的一套技巧来构建页面和交互以外，一般这类框架还会提供一些访问设备的接口，比如相机和 GPS 等。
 
 ![hybrid-app](https://onevcat.com/assets/images/2015/hybrid-app.jpg)
 

@@ -387,7 +387,7 @@ android:layout_gravity="bottom|end"
 
 我们上面的布局中 给 Toolbar 设置了 app:layout_scrollFlags 属性，因此，Toolbar 是可以滚动出屏幕，且向下滚动有可以出现。
 
-3. 为了使得 Toolbar 可以滑动，我们必须还得有个条件，就是 CoordinatorLayout 布局下包裹一个可以滑动的布局，比如 RecyclerView，NestedScrollView( 经过测试，ListView ，ScrollView 不支持 ) 具有滑动效果的组件。并且给这些组件设置如下属性来告诉 CoordinatorLayout，该组件是带有滑动行为的组件，然后 CoordinatorLayout 在接受到滑动时会通知 AppBarLayout 中可滑动的 Toolbar 可以滑出屏幕了。
+3. 为了使得 Toolbar 可以滑动，我们必须还得有个条件，就是 CoordinatorLayout 布局下包裹一个可以滑动的布局，比如 RecyclerView，NestedScrollView( 经过测试，ListView，ScrollView 不支持 ) 具有滑动效果的组件。并且给这些组件设置如下属性来告诉 CoordinatorLayout，该组件是带有滑动行为的组件，然后 CoordinatorLayout 在接受到滑动时会通知 AppBarLayout 中可滑动的 Toolbar 可以滑出屏幕了。
 
 ```
 app:layout_behavior="@string/appbar_scrolling_view_behavior"

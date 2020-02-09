@@ -97,7 +97,7 @@ func pancake() -> Pancake {
 }
 ```
 
-- **1.9** 我们默认使用 Xcode 推荐的格式化风格(CTRL-I) ，在声明某个函数的时候会多行排布参数。
+- **1.9** 我们默认使用 Xcode 推荐的格式化风格(CTRL-I)，在声明某个函数的时候会多行排布参数。
 
 ```swift
 // Xcode indentation for a function declaration that spans multiple lines
