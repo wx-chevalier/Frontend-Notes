@@ -167,7 +167,7 @@ if x == firstReallyReallyLongPredicateFunction()
 
 - **2.1** Swift 中不需要再使用 Objective-C 那样的前缀，譬如使用 `GuybrushThreepwood` 而不是`LIGuybrushThreepwood`。
 
-- **2.2** 对于类型名即`struct`, `enum`, `class`, `typedef`, `associatedtype`等等使用 `PascalCase` 。
+- **2.2** 对于类型名即`struct`, `enum`, `class`, `typedef`, `associatedtype`等等使用 `PascalCase`。
 
 - **2.3** 对于函数名、方法名、变量名、常量、参数名等使用`camelCase`。
 
