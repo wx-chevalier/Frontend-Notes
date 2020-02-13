@@ -27,8 +27,8 @@ App ID 字符串通常以**反域名**(reverse-domain-name )格式的 Company Id
 
 App ID 全名会被追加 Application Identifier Prefix(一般为 TeamID.)，分为两类：
 
-- Explicit App ID ：唯一的 App ID，用于唯一标识一个应用程序。例如 “com.apple.garageband” 这个 App ID，用于标识 Bundle Identifier 为 “com.apple.garageband” 的 App。
-- Wildcard App ID ：含有通配符的 App ID，用于标识一组应用程序。例如 “_”(实际上是 Application Identifier Prefix)表示所有应用程序；而 “com.apple._” 可以表示 Bundle Identifier 以 “com.apple.” 开头(苹果公司)的所有应用程序。
+- Explicit App ID：唯一的 App ID，用于唯一标识一个应用程序。例如 “com.apple.garageband” 这个 App ID，用于标识 Bundle Identifier 为 “com.apple.garageband” 的 App。
+- Wildcard App ID：含有通配符的 App ID，用于标识一组应用程序。例如 “_”(实际上是 Application Identifier Prefix)表示所有应用程序；而 “com.apple._” 可以表示 Bundle Identifier 以 “com.apple.” 开头(苹果公司)的所有应用程序。
 
 用户可在 Developer Member Center 网站上注册(Register )或删除(Delete )已注册的 App IDs。App ID **被配置到**【XcodeTarget|Info|Bundle Identifier 】下；对于 Wildcard App ID，只要 bundle identifier 包含其作为 Prefix/Seed 即可。![](http://www.dcloud.io/docs/a/cert/id_name.png) ![](http://www.dcloud.io/docs/a/cert/id_id.png)
 
@@ -55,7 +55,7 @@ Provisioning Profile 文件包含了上述的所有内容：证书、App ID 和 
 
 ## Xcode 7 免证书调试
 
-所谓 “ 免证书 ” 真机调试，并不是真的不需要证书，Xcode 真机调试原有的证书配置体系仍在 ——All iOS, tvOS, and watchOS appsmust be code signed and provisioned to launch on a device. 所以，上文啰嗦几千字还是有点用的。自 Xcode7 开始，原来基于付费开发者账号及自助生成证书及配置文件的繁琐过程被苹果简化，Xcode 将针对任何普通账号自动为联调真机生成所需相关的证书及配置文件。当你打算向 App Store 提交发布应用，才需要付费。第一步：进入 Xcode Preferences|Accounts，添加自己的 Apple ID 账号。第二步：Build Settings|Code Signing 下的 Provisioning Profile 选择 Automatic，Code Signing Identity 选择 Automatic 下的 iOS Developer。第三步：General 配置 Bundle identifier，Team 下拉选择苹果 Member Center 自动为你的账号生成的 Personal Team ID。自己的账号在调试公司或其他第三方 APP 代码时，若填写 Bundle identifier 为他人账号注册的 APP ID(例如苹果相机应用 com.apple.camera)，会报错: No provisioning profiles with a valid signing identity (i.e. certificate and private key pair) matching the bundle identifier “com.apple.camera” were found. 即使编译通过了，可能运行时 APP 自身与服务器校验也可能会报签名错误，肿么办？？？ Her skill ：此时，可以在他人原有 App ID 基础上添加后缀(例如 com.apple.camera.extension)，配置成应用的衍生插件(相当于置于同一 App Group 下)就可以快乐的玩耍了。如果启动 APP 时，Xcode 报错 “process launch failed: Security” 或 iPhone 报错【不受信任的开发者】，此时需要到 iPhone 通用配置中的描述文件(最新系统中可能叫设备管理)中，在描述文件(开发商应用)中选择对应的描述文件(你的 Apple ID)点击 信任 或 验证 即可。
+所谓 “ 免证书 ” 真机调试，并不是真的不需要证书，Xcode 真机调试原有的证书配置体系仍在 ——All iOS, tvOS, and watchOS appsmust be code signed and provisioned to launch on a device. 所以，上文啰嗦几千字还是有点用的。自 Xcode7 开始，原来基于付费开发者账号及自助生成证书及配置文件的繁琐过程被苹果简化，Xcode 将针对任何普通账号自动为联调真机生成所需相关的证书及配置文件。当你打算向 App Store 提交发布应用，才需要付费。第一步：进入 Xcode Preferences|Accounts，添加自己的 Apple ID 账号。第二步：Build Settings|Code Signing 下的 Provisioning Profile 选择 Automatic，Code Signing Identity 选择 Automatic 下的 iOS Developer。第三步：General 配置 Bundle identifier，Team 下拉选择苹果 Member Center 自动为你的账号生成的 Personal Team ID。自己的账号在调试公司或其他第三方 APP 代码时，若填写 Bundle identifier 为他人账号注册的 APP ID(例如苹果相机应用 com.apple.camera)，会报错: No provisioning profiles with a valid signing identity (i.e. certificate and private key pair) matching the bundle identifier “com.apple.camera” were found. 即使编译通过了，可能运行时 APP 自身与服务器校验也可能会报签名错误，肿么办？？？ Her skill：此时，可以在他人原有 App ID 基础上添加后缀(例如 com.apple.camera.extension)，配置成应用的衍生插件(相当于置于同一 App Group 下)就可以快乐的玩耍了。如果启动 APP 时，Xcode 报错 “process launch failed: Security” 或 iPhone 报错【不受信任的开发者】，此时需要到 iPhone 通用配置中的描述文件(最新系统中可能叫设备管理)中，在描述文件(开发商应用)中选择对应的描述文件(你的 Apple ID)点击 信任 或 验证 即可。
 
 # 内容 / 功能 Issue
 
