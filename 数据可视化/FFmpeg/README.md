@@ -76,7 +76,7 @@ ffmpeg [全局选项] {[输入文件选项] -i ‘输入文件’} ... {[输出�
 	时间戳到达 position。
 	position 可以是秒或者 hh:mm:ss[.xxx] 形式
 ‘-itsoffset offset (input)’
-	设置输入时间偏移。 offset 将被添加到输入文件的时间戳。指定
+	设置输入时间偏移。offset 将被添加到输入文件的时间戳。指定
 	一个正偏移，意味着相应的流将被延时指定时间。
 ‘-timestamp date (output)’
 	在容器中设置录音时间戳
