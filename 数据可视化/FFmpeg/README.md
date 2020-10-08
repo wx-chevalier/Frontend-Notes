@@ -115,7 +115,7 @@ ffmpeg [全局选项] {[输入文件选项] -i ‘输入文件’} ... {[输出�
 ‘-vframes number (output)’
 	设置录制视频帧的个数。这是 -frames:v 的别名
 ‘-r[:stream_specifier] fps (input/output,per-stream)’
-	设置帧率(Hz 值， 分数或缩写)
+	设置帧率(Hz 值，分数或缩写)
 ‘-s[:stream_specifier] size (input/output,per-stream)’
 	设置帧大小。格式为 ‘wxh’ (默认与源相同)
 ‘-aspect[:stream_specifier] aspect (output,per-stream)’
