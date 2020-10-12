@@ -85,7 +85,7 @@ extension PirateViewController: UITableViewDataSource {
 let myArray = [1, 2, 3, 4, 5]
 ```
 
-- **1.8** 在二元操作符譬如`+`, `==`, 或者 `->`的前后需要加上空格，但是对于`(` 、`)的前后不需要加空格。
+- **1.8** 在二元操作符譬如`+`, `==`, 或者 `->`的前后需要加上空格，但是对于`(`、`)的前后不需要加空格。
 
 ```swift
 let myValue = 20 + (30 / 2) * 3

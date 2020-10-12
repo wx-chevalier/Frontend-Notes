@@ -8,8 +8,6 @@
 
 > [ iOS Provisioning Profile(Certificate) 与 Code Signing 详解 ](http://blog.csdn.net/phunxm/article/details/42685597/)
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/8/2/5B92CF5E-7B97-46C6-8CE6-1EDC12C8BF08.png)
-
 AppStore 的证书与绑定机制对于笔者感觉还是蛮复杂的，不过流程多走即便可能就会清晰很多。首先需要明白的是，在苹果的证书体系中，Certificates 与 Identifiers 是相互独立的，笔者之前经常有个疑问就是最早提交某个 APP 审核的开发者的 P12 丢失了，那后续重新申请的证书还可以用于提交后续版本吗？答案肯定是可以的。一般来说，某个 Certificates+Identifiers 会得到一个 MobileProvision 文件，而该文件就是在进行本地开发、打包上传时所必须的。![](http://www.dcloud.io/docs/a/cert/idc_ioscert.png) iOS 有两种证书和描述文件：
 
 | 证书类型                           | 使用场景          |

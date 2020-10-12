@@ -1,6 +1,6 @@
 # Introduction
 
-[Toolbar][1]是某个应用程序中 Action Bar 的泛华。Action Bar 指 Activity 中承载了导航按钮、Brand 、标题和副标题这些部分。
+[Toolbar][1]是某个应用程序中 Action Bar 的泛华。Action Bar 指 Activity 中承载了导航按钮、Brand、标题和副标题这些部分。
 
 ## Reference
 

@@ -1,10 +1,10 @@
 - [原文地址](https://medium.com/@sergii/best-practices-for-android-developer-productivity-cfd6ffba804c#.bp2tjpwt0)
 
-软件工程师的工作效率不仅依赖于知识的掌握程度与经验，也会依赖于你选择的工具集合、合适的环境配置以及团队内的合作技巧。本文即是作者在[Droidcon Berlin](http://droidcon.de/en/sessions/effective-android-development)上演讲的总结。![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/4/1-e7X-rfqUmez-yI_DdsyOCw.jpeg)
+软件工程师的工作效率不仅依赖于知识的掌握程度与经验，也会依赖于你选择的工具集合、合适的环境配置以及团队内的合作技巧。本文即是作者在[Droidcon Berlin](http://droidcon.de/en/sessions/effective-android-development)上演讲的总结。
 
 # 看穿你的 AndroidManifest
 
-众所周知，我们开发时候在文本编辑器中看到的`AndroidManifest.xml`并非最终打包到应用中的`AndroidManifest.xml`文件。在打包时，编译器会自动地将你所使用的第三方依赖库中的譬如`<uses-permission/>`这些元素从它们自己的 Manifests 文件中抽取出来然后统一在主入口的`AndroidManifest.xml`文件中声明，关于这部分的详细说明可以参考[这里](https://commonsware.com/blog/2015/06/25/hey-where-did-these-permissions-come-from.html)。Android Studio 2.2 中提供了一个新特性，[Merged Manifest Viewer](http://android-developers.blogspot.de/2016/05/android-studio-22-preview-new-ui.html)可以用于预览在 APK 构建之后最终生成的`AndroidManifest.xml`文件，该文件中会包含项目依赖中声明的构建类型、变量等等信息。![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/4/0-wZiAP9ouYyAaY-_x.png)
+众所周知，我们开发时候在文本编辑器中看到的`AndroidManifest.xml`并非最终打包到应用中的`AndroidManifest.xml`文件。在打包时，编译器会自动地将你所使用的第三方依赖库中的譬如`<uses-permission/>`这些元素从它们自己的 Manifests 文件中抽取出来然后统一在主入口的`AndroidManifest.xml`文件中声明，关于这部分的详细说明可以参考[这里](https://commonsware.com/blog/2015/06/25/hey-where-did-these-permissions-come-from.html)。Android Studio 2.2 中提供了一个新特性，[Merged Manifest Viewer](http://android-developers.blogspot.de/2016/05/android-studio-22-preview-new-ui.html)可以用于预览在 APK 构建之后最终生成的`AndroidManifest.xml`文件，该文件中会包含项目依赖中声明的构建类型、变量等等信息。
 
 # 好好使用 Support Annotations
 
@@ -25,7 +25,7 @@ Code Review 是项目开发中的常见操作，我们需要切换到某个 Feat
 
 # 修改的热加载
 
-笔者在 React 开发中使用 HOT Reload 是个很不错的体验，而在 Android 开发中，即使是一个很小的 Android 项目，也需要等待不少的时间来等待修改之后的代码重新构建与部署，更何况对于那些有成百上千个类与 XML 布局文件的项目。另一方面，你也需要在你的应用中跳转选择到合适的页面来查看你做的更改的实际效果。2015 年底，Android 社区逐步使用两个工具来加速代码更改的加载速度，首先是[JRebel](https://zeroturnaround.com/software/jrebel-for-android/)，源于 Java 在服务端开发中的长期实践。另一个是 Google 团队随着 Android Studio 2.0 一起推出的工具：[Instant Run](https://developer.android.com/studio/run/index.html#instant-run)。两个工具的目标差不多，不过 JRebel 包含更多的特性，但是它也需要付费。作者编辑了一个简单的表单来描述二者的特性对比 : ![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/4/0--btlhImjSPlQ37rQ.png)
+笔者在 React 开发中使用 HOT Reload 是个很不错的体验，而在 Android 开发中，即使是一个很小的 Android 项目，也需要等待不少的时间来等待修改之后的代码重新构建与部署，更何况对于那些有成百上千个类与 XML 布局文件的项目。另一方面，你也需要在你的应用中跳转选择到合适的页面来查看你做的更改的实际效果。2015 年底，Android 社区逐步使用两个工具来加速代码更改的加载速度，首先是[JRebel](https://zeroturnaround.com/software/jrebel-for-android/)，源于 Java 在服务端开发中的长期实践。另一个是 Google 团队随着 Android Studio 2.0 一起推出的工具：[Instant Run](https://developer.android.com/studio/run/index.html#instant-run)。两个工具的目标差不多，不过 JRebel 包含更多的特性，但是它也需要付费。作者编辑了一个简单的表单来描述二者的特性对比 :
 
 - https://developer.android.com/studio/run/index.html#instant-run
 - Reto Meier: “Instant Run: How Does it Work?!”
