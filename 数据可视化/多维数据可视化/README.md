@@ -6,6 +6,6 @@
 
 ![](https://i.postimg.cc/fyWtN7Vx/image.png)
 
-# 链接
+# TBD
 
 - http://lobay.moe/2019/06/17/GoG/canary-base-theory/#%E5%8F%AF%E8%A7%86%E5%8C%96%E8%BF%87%E7%A8%8B
