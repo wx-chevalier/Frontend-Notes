@@ -38,7 +38,7 @@ ffmpeg [全局选项] {[输入文件选项] -i ‘输入文件’} ... {[输出�
 
 主要选项
 
-```
+```sh
 ‘-f fmt (input/output)’
 	强制输入或输出文件格式。通常，输入文件的格式是自动检测的，
 	输出文件的格式是通过文件扩展名来进行猜测的，所有该选项大
@@ -111,7 +111,11 @@ ffmpeg [全局选项] {[输入文件选项] -i ‘输入文件’} ... {[输出�
 	添加一个附件到输出文件中
 ‘-dump_attachment[:stream_specifier] filename (input,per-stream)’
 	提取匹配的附件流到filename指定的文件中。
-视频选项
+```
+
+## 视频选项
+
+```sh
 ‘-vframes number (output)’
 	设置录制视频帧的个数。这是 -frames:v 的别名
 ‘-r[:stream_specifier] fps (input/output,per-stream)’
@@ -153,7 +157,7 @@ ffmpeg [全局选项] {[输入文件选项] -i ‘输入文件’} ... {[输出�
 	选择硬件加速所使用的设备。该选项只有‘-hwaccel’同时指定时才有意义。
 ```
 
-- 音频选项
+## 音频选项
 
 ```
 ‘-aframes number (output)’
