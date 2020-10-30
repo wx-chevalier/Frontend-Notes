@@ -4,7 +4,7 @@
 
 常见的方式是将这样的一个多维的关系型数据库视为一个多维的数据立方体(cube)，这种方式最知名的实践之一便是数据透视表，但数据透视表在数据的直观展示能力上非常欠缺。
 
-![](https://i.postimg.cc/fyWtN7Vx/image.png)
+![从数据源到渲染](https://i.postimg.cc/fyWtN7Vx/image.png)
 
 # TBD
 
