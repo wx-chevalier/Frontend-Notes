@@ -68,12 +68,20 @@
         - [动画](/图形与可视化/图形绘制/SVG/动画.md)
         - [图形](/图形与可视化/图形绘制/SVG/图形.md)
       - [Three.js](/图形与可视化/图形绘制/Three.js/README.md)
+        - [光源](/图形与可视化/图形绘制/Three.js/光源/README.md)
+          
+        - [几何体](/图形与可视化/图形绘制/Three.js/几何体/README.md)
+          
         - [快速开始](/图形与可视化/图形绘制/Three.js/快速开始/README.md)
           - [Hello Cube](/图形与可视化/图形绘制/Three.js/快速开始/Hello%20Cube.md)
           - [响应式设计](/图形与可视化/图形绘制/Three.js/快速开始/响应式设计.md)
           - [按需渲染](/图形与可视化/图形绘制/Three.js/快速开始/按需渲染.md)
-        - 语法基础
-          - [Primitive](/图形与可视化/图形绘制/Three.js/语法基础/Primitive.md)
+        - [材质](/图形与可视化/图形绘制/Three.js/材质/README.md)
+          
+        - [相机](/图形与可视化/图形绘制/Three.js/相机/README.md)
+          
+        - [纹理](/图形与可视化/图形绘制/Three.js/纹理/README.md)
+          
       - [WebGL](/图形与可视化/图形绘制/WebGL/README.md)
         
     - [数据可视化](/图形与可视化/数据可视化/README.md)
