@@ -68,17 +68,28 @@
         - [动画](/图形与可视化/图形绘制/SVG/动画.md)
         - [图形](/图形与可视化/图形绘制/SVG/图形.md)
       - [Three.js](/图形与可视化/图形绘制/Three.js/README.md)
+        - examples
+          - [learning threejs](/图形与可视化/图形绘制/Three.js/examples/learning-threejs/README.md)
+            
         - [光源](/图形与可视化/图形绘制/Three.js/光源/README.md)
-          
-        - [几何体](/图形与可视化/图形绘制/Three.js/几何体/README.md)
-          
+          - [DirectionalLight](/图形与可视化/图形绘制/Three.js/光源/DirectionalLight.md)
+        - [几何体与操作](/图形与可视化/图形绘制/Three.js/几何体与操作/README.md)
+          - [三维几何体](/图形与可视化/图形绘制/Three.js/几何体与操作/三维几何体.md)
+          - [三维文本](/图形与可视化/图形绘制/Three.js/几何体与操作/三维文本.md)
+          - [二元操作](/图形与可视化/图形绘制/Three.js/几何体与操作/二元操作.md)
+          - [二维几何体](/图形与可视化/图形绘制/Three.js/几何体与操作/二维几何体.md)
+          - [高级几何体](/图形与可视化/图形绘制/Three.js/几何体与操作/高级几何体.md)
         - [快速开始](/图形与可视化/图形绘制/Three.js/快速开始/README.md)
           - [Hello Cube](/图形与可视化/图形绘制/Three.js/快速开始/Hello%20Cube.md)
           - [响应式设计](/图形与可视化/图形绘制/Three.js/快速开始/响应式设计.md)
           - [按需渲染](/图形与可视化/图形绘制/Three.js/快速开始/按需渲染.md)
         - [材质](/图形与可视化/图形绘制/Three.js/材质/README.md)
           
-        - [相机](/图形与可视化/图形绘制/Three.js/相机/README.md)
+        - [模型加载](/图形与可视化/图形绘制/Three.js/模型加载/README.md)
+          - [OBJ 与 MTL 格式](/图形与可视化/图形绘制/Three.js/模型加载/OBJ%20与%20MTL%20格式.md)
+        - [相机与动画](/图形与可视化/图形绘制/Three.js/相机与动画/README.md)
+          
+        - [粒子系统](/图形与可视化/图形绘制/Three.js/粒子系统/README.md)
           
         - [纹理](/图形与可视化/图形绘制/Three.js/纹理/README.md)
           
@@ -120,7 +131,7 @@
       - [图元](/图形与可视化/计算机图形学/图元/README.md)
         
       - [图形生成与计算](/图形与可视化/计算机图形学/图形生成与计算/README.md)
-        
+        - [直线](/图形与可视化/计算机图形学/图形生成与计算/直线.md)
       - [数据交换标准](/图形与可视化/计算机图形学/数据交换标准/README.md)
         
       - 概述

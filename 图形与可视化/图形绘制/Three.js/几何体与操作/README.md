@@ -4,32 +4,6 @@ Three.js 有大量的基本元素。基本元素通常是在运行时通过一�
 
 以下许多基本元素的部分或全部参数都有默认值，因此您可以根据自己的需要多用或少用。
 
-# BoxBufferGeometry, BoxGeometry
-
-```js
-const width = 8;
-const height = 8;
-const depth = 8;
-const geometry = new THREE.BoxBufferGeometry(width, height, depth);
-
-const width = 8;
-const height = 8;
-const depth = 8;
-const widthSegments = 4;
-const heightSegments = 4;
-const depthSegments = 4;
-const geometry = new THREE.BoxBufferGeometry(
-  width,
-  height,
-  depth,
-  widthSegments,
-  heightSegments,
-  depthSegments
-);
-```
-
-![Box 示意图](https://s1.ax1x.com/2020/10/30/BtihrQ.png)
-
 # CircleBufferGeometry, CircleGeometry
 
 ```js
