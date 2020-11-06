@@ -168,9 +168,9 @@ AppRegistry.registerComponent("HelloWorld", function () {
 
 RN 需要一个 JS 的运行环境，在 IOS 上直接使用内置的 javascriptcore，在 Android 则使用 webkit.org 官方开源的 jsc.so。此外还集成了其他开源组件，如 fresco 图片组件，okhttp 网络组件等。
 
-RN 会把应用的 JS 代码(包括依赖的 framework)编译成一个 js 文件(一般命名为 index.android.bundle), , RN 的整体框架目标就是为了解释运行这个 js 脚本文件，如果是 js 扩展的 API，则直接通过 bridge 调用 native 方法; 如果是 UI 界面，则映射到 virtual DOM 这个虚拟的 JS 数据结构中，通过 bridge 传递到 native ，然后根据数据属性设置各个对应的真实 native 的 View。bridge 是一种 JS 和 Java 代码通信的机制，用 bridge 函数传入对方 module 和 method 即可得到异步回调的结果。
+RN 会把应用的 JS 代码(包括依赖的 framework)编译成一个 js 文件(一般命名为 index.android.bundle), , RN 的整体框架目标就是为了解释运行这个 js 脚本文件，如果是 js 扩展的 API，则直接通过 bridge 调用 native 方法; 如果是 UI 界面，则映射到 virtual DOM 这个虚拟的 JS 数据结构中，通过 bridge 传递到 native，然后根据数据属性设置各个对应的真实 native 的 View。bridge 是一种 JS 和 Java 代码通信的机制，用 bridge 函数传入对方 module 和 method 即可得到异步回调的结果。
 
-对于 JS 开发者来说，画 UI 只需要画到 virtual DOM 中，不需要特别关心具体的平台, 还是原来的单线程开发，还是原来 HTML 组装 UI(JSX)，还是原来的样式模型(部分兼容 )。RN 的界面处理除了实现 View 增删改查的接口之外，还自定义一套样式表达 CSSLayout，这套 CSSLayout 也是跨平台实现。RN 拥有画 UI 的跨平台能力，主要是加入 Virtual DOM 编程模型，该方法一方面可以照顾到 JS 开发者在 html DOM 的部分传承，让 JS 开发者可以用类似 DOM 编程模型就可以开发原生 APP ，另一方面则可以让 Virtual DOM 适配实现到各个平台，实现跨平台的能力，并且为未来增加更多的想象空间，比如 react-cavas, react-openGL。而实际上 react-native 也是从 react-js 演变而来。
+对于 JS 开发者来说，画 UI 只需要画到 virtual DOM 中，不需要特别关心具体的平台, 还是原来的单线程开发，还是原来 HTML 组装 UI(JSX)，还是原来的样式模型(部分兼容 )。RN 的界面处理除了实现 View 增删改查的接口之外，还自定义一套样式表达 CSSLayout，这套 CSSLayout 也是跨平台实现。RN 拥有画 UI 的跨平台能力，主要是加入 Virtual DOM 编程模型，该方法一方面可以照顾到 JS 开发者在 html DOM 的部分传承，让 JS 开发者可以用类似 DOM 编程模型就可以开发原生 APP，另一方面则可以让 Virtual DOM 适配实现到各个平台，实现跨平台的能力，并且为未来增加更多的想象空间，比如 react-cavas, react-openGL。而实际上 react-native 也是从 react-js 演变而来。
 
 对于 Android 开发者来说，RN 是一个普通的安卓程序加上一堆事件响应，事件来源主要是 JS 的命令。主要有二个线程，UI main thread, JS thread。UI thread 创建一个 APP 的事件循环后，就挂在 looper 等待事件 , 事件驱动各自的对象执行命令。JS thread 运行的脚本相当于底层数据采集器，不断上传数据，转化成 UI 事件，通过 bridge 转发到 UI thread, 从而改变真实的 View。后面再深一层发现，UI main thread 跟 JS thread 更像是 CS 模型，JS thread 更像服务端，UI main thread 是客户端，UI main thread 不断询问 JS thread 并且请求数据，如果数据有变，则更新 UI 界面。
 
@@ -189,7 +189,7 @@ $ cd my-project
 $ npm start
 ```
 
-命令行中会输出如下界面，我们可以在 Expo 移动端应用中扫描二维码，即可以开始远程调试。我们也可以选择使用 Expo 的桌面端辅助开发工具 [XDE](https://github.com/exponent/xde) ，其内置了命令行工具与发布工具，同时支持使用内部模拟器：
+命令行中会输出如下界面，我们可以在 Expo 移动端应用中扫描二维码，即可以开始远程调试。我们也可以选择使用 Expo 的桌面端辅助开发工具 [XDE](https://github.com/exponent/xde)，其内置了命令行工具与发布工具，同时支持使用内部模拟器：
 ![](https://docs.expo.io/bb256105106a86d5d9484892e82f94f3-quality=50&pngCompressionLevel=9&width=2128.png)
 
 除此之外，Expo 还提供了 [Sketch](https://sketch.expo.io/Sk90tMVol) 这个在线编辑器，提供了组件拖拽、内建的 ESLint 等功能，允许开发者直接在网页中进行快速开发与共享，然后通过二维码在应用内预览。
@@ -214,7 +214,7 @@ Expo 支持标准的 React Native 组件，目前已经内置了相机、视频�
 
 配置完毕之后在应用目录内使用 `exp start` 命令来启动 Expo 打包工具，然后选择使用 `exp build:android` 或者 `exp build:ios` 分别构建 Android 或者 iOS 独立应用。
 
-除此之外，我们还可以使用 [PepperoniAppKit](https://github.com/futurice/pepperoni-app-kit) ，或者[Deco](https://www.decosoftware.com)
+除此之外，我们还可以使用 [PepperoniAppKit](https://github.com/futurice/pepperoni-app-kit)，或者[Deco](https://www.decosoftware.com)
 
 # 开发第一个应用程序
 
