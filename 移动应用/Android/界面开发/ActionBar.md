@@ -158,7 +158,7 @@ Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
 
 当向下滚动时 ,Banner 大图会跟随滚动手势而 Collapse. 最后收折成一个普通的 ActionBar( 实际是个 Toolbar,Android 官方在最新的 Support Library 都推荐把 ActionBar 替换成 Toolbar).
 
-通过属性 Flag 的组合 , 也能实现把 ActionBar 直接推出屏幕 , 让其消失 .
+通过属性 Flag 的组合, 也能实现把 ActionBar 直接推出屏幕, 让其消失 .
 
 [Android Support Library](http://android-developers.blogspot.sg/2015/05/android-design-support-library.html) 中提供的 CollapseToolbar 实现这效果 .
 
@@ -209,23 +209,23 @@ Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
 </android.support.design.widget.CoordinatorLayout>
 ```
 
-这是 Layout 布局 .CoordinatorLayout 和 AppBarLayout 的组合在 [这篇随笔](http://www.cnblogs.com/wingyip/p/4604472.html) 中有介绍 , 实现了滚动隐藏 Toolbar 的效果 , 这里就不在重复了 .
+这是 Layout 布局 .CoordinatorLayout 和 AppBarLayout 的组合在 [这篇随笔](http://www.cnblogs.com/wingyip/p/4604472.html) 中有介绍, 实现了滚动隐藏 Toolbar 的效果, 这里就不在重复了 .
 
 CollapsingToolbarLayout 是实现 GIF 效果的关键 .
 
-CollapsingToolbarLayout 有两个 Children.ImageView 用来显示 Banner 大图 , 即 Gif 中曼联队徽的大图 . 而 Toolbar 就是折叠后看到的顶栏 Toolbar.
+CollapsingToolbarLayout 有两个 Children.ImageView 用来显示 Banner 大图, 即 Gif 中曼联队徽的大图 . 而 Toolbar 就是折叠后看到的顶栏 Toolbar.
 
 app:contentScrim="?attr/colorPrimary" ,CollapsingToolbarLayout 这个属性是设置折叠后 Toolbar 的颜色 .
 
-app:layout_scrollFlags="scroll|exitUntilCollapsed" , 这是两个 Flag 控制滚动时候 CollapsingToolbarLayout 的表现 .
+app:layout_scrollFlags="scroll|exitUntilCollapsed", 这是两个 Flag 控制滚动时候 CollapsingToolbarLayout 的表现 .
 
 1. **Scroll, ** 表示向下滚动列表时候 ,CollapsingToolbarLayout 会滚出屏幕并且消失 ( 原文解释 :this flag should be set for all views that want to scroll off the screen - for views that do not use this flag, they’ll remain pinned to the top of the screen)
 
-2. **exitUntilCollapsed, ** 表示这个 layout 会一直滚动离开屏幕范围 , 直到它收折成它的最小高度 .( 原文解释 :this flag causes the view to scroll off until it is ‘collapsed’ (its minHeight) before exiting)
+2. **exitUntilCollapsed, ** 表示这个 layout 会一直滚动离开屏幕范围, 直到它收折成它的最小高度 .( 原文解释 :this flag causes the view to scroll off until it is ‘collapsed’ (its minHeight) before exiting)
 
 **app:layout_collapseMode="parallax",** 这是控制滚出屏幕范围的效果的
 
-1. **parallax,** 表示滚动过程中 , 会一直保持可见区域在正中间 .
+1. **parallax,** 表示滚动过程中, 会一直保持可见区域在正中间 .
 
 2. **pin,** 表示不会被滚出屏幕范围 .
 
@@ -264,11 +264,11 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-这是 Activity 的 onCreate 方法 , 有两处地方需要关注的
+这是 Activity 的 onCreate 方法, 有两处地方需要关注的
 
-\1. **setSupportActionBar()** 方法 , 告诉 AppCompatActivity 哪一个是 ActionBar( 实际是 Toolbar). 不然的话 , 做透明 Status Bar( 电池 , 手机信号那一区域 ) 效果时候 ,ActionBar 会位置不正确 .
+\1. **setSupportActionBar()** 方法, 告诉 AppCompatActivity 哪一个是 ActionBar( 实际是 Toolbar). 不然的话, 做透明 Status Bar( 电池, 手机信号那一区域 ) 效果时候 ,ActionBar 会位置不正确 .
 
-\2. **Palette,** 调色板的意思 , 也是 Android Support Library 提供的 . 用来抓取 Bitmap 的颜色 . 在此处的用处是 , 当 ActionBar 被收折后 , 背景颜色能保持和 Banner 大图的色调一致 , 而 Title 文字的颜色保证和 Banner 大图的色调形成强对比 .
+\2. **Palette,** 调色板的意思, 也是 Android Support Library 提供的 . 用来抓取 Bitmap 的颜色 . 在此处的用处是, 当 ActionBar 被收折后, 背景颜色能保持和 Banner 大图的色调一致, 而 Title 文字的颜色保证和 Banner 大图的色调形成强对比 .
 
 # AppBar Layout
 
@@ -846,7 +846,7 @@ compile('com.mikepenz:materialdrawer:3.0.9@aar') {
 
 ![](https://pic3.zhimg.com/be0409dddd05f0d2f7ee9852074d4dd2_b.jpg)
 
-关于透明栏的更多描述参见 : [System Bars](http://www.google.com/design/spec/layout/structure.html#structure-system-bars) (Material Design)。沉浸式对应的是 Immersive Mode, 呈现的形式是全屏状态 , 隐藏状态栏与导航栏。
+关于透明栏的更多描述参见 : [System Bars](http://www.google.com/design/spec/layout/structure.html#structure-system-bars) (Material Design)。沉浸式对应的是 Immersive Mode, 呈现的形式是全屏状态, 隐藏状态栏与导航栏。
 
 ![](https://pic2.zhimg.com/2f0e0c9c4b5c42157a17ae514c5902ad_r.jpg)
 
