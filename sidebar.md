@@ -66,6 +66,8 @@
     - [4.5 混合开发](/移动应用/混合开发/README.md)
       - 4.5.1 Cordova
         - [4.5.1.1 iOS](/移动应用/混合开发/Cordova/iOS.md)
+      - [4.5.2 Ionic](/移动应用/混合开发/Ionic/README.md)
+        
     - [4.6 移动安全](/移动应用/移动安全/README.md)
       
   - [5 虚拟现实](/虚拟现实/README.md)
