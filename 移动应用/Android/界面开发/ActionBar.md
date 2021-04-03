@@ -2,12 +2,6 @@
 
 [Toolbar][1]是某个应用程序中 Action Bar 的泛华。Action Bar 指 Activity 中承载了导航按钮、Brand、标题和副标题这些部分。
 
-## Reference
-
-### Tutorial & Docs
-
-- [Getting Started with Material Design on Android: Toolbar and Navigation Drawer](https://dzone.com/articles/getting-started-with-android-app-and-material-desi)
-
 # Toolbar & ActionBar
 
 ## ActionBar
@@ -887,3 +881,7 @@ MaterialSearchView 的作用即是为 Android 的 ToolBar
 [1]: https://developer.android.com/training/implementing-navigation/nav-drawer.html
 [2]: https://github.com/mikepenz/MaterialDrawer
 [3]: https://raw.githubusercontent.com/mikepenz/MaterialDrawer/master/DEV/screenshots/screenshot1_small.png
+
+# Links
+
+- [Getting Started with Material Design on Android: Toolbar and Navigation Drawer](https://dzone.com/articles/getting-started-with-android-app-and-material-desi)

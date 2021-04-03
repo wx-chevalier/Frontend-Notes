@@ -1,9 +1,5 @@
 # AppStore
 
-## Reference
-
-- [ipv6, 后台定位等审核问题的终极解决方案汇总](https://github.com/wg689/Solve-App-Store-Review-Problem)
-
 # 证书
 
 > [ iOS Provisioning Profile(Certificate) 与 Code Signing 详解 ](http://blog.csdn.net/phunxm/article/details/42685597/)
