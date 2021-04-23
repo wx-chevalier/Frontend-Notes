@@ -1,3 +1,3 @@
-# 现代 Web 全栈开发与工程架构
+# Web 开发
 
-本篇已经迁移到了独立仓库 [Web-Series](https://github.com/wx-chevalier/Web-Series)。
+本篇迁移到了 [Web Series](https://github.com/wx-chevalier/Web-Series)

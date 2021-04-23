@@ -1,7 +1,6 @@
   - [1 INTRODUCTION](/INTRODUCTION.md)
   - [2 Web](/Web/README.md)
-    - [2.1 2D 动画](/Web/2D%20动画/README.md)
-      
+    
   - [3 图形与可视化](/图形与可视化/README.md)
     
   - [4 游戏](/游戏/README.md)
