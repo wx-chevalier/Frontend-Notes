@@ -4,7 +4,8 @@
   - [3 图形与可视化](/图形与可视化/README.md)
     
   - [4 游戏](/游戏/README.md)
-    
+    - [4.1 Web 2D](/游戏/Web%202D/README.md)
+      
   - 5 移动应用
     - [5.1 Android](/移动应用/Android/README.md)
       - 5.1.1 工程实践
