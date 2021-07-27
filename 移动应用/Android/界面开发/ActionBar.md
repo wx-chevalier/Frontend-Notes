@@ -836,7 +836,7 @@ compile('com.mikepenz:materialdrawer:3.0.9@aar') {
 
 > - [什么叫沉浸式状态栏 ?](http://www.zhihu.com/question/27024901)
 
-透明状态栏与沉浸式状态栏不是同一种东西，透明状态栏源自 ActionBar，只是其颜色和设计状态发生了变化，一般呈现的是状态栏和 / 或导航栏透明或半透明 . 最极端的例子是在 Muzei 这样的应用上 :
+透明状态栏与沉浸式状态栏不是同一种东西，透明状态栏源自 ActionBar，只是其颜色和设计状态发生了变化，一般呈现的是状态栏和 / 或导航栏透明或半透明 . 最极端的例子是在 Muzei 这样的应用上
 
 ![](https://pic3.zhimg.com/be0409dddd05f0d2f7ee9852074d4dd2_b.jpg)
 

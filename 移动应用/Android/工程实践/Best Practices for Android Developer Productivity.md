@@ -12,7 +12,7 @@
 
 # 快速的 Code Review
 
-Code Review 是项目开发中的常见操作，我们需要切换到某个 Feature 分支，然后重新编译运行项目，常见的工作流如下 :
+Code Review 是项目开发中的常见操作，我们需要切换到某个 Feature 分支，然后重新编译运行项目，常见的工作流如下
 
 - 暂存本分支的更改
 - 检出待 Review 的分支
@@ -25,7 +25,7 @@ Code Review 是项目开发中的常见操作，我们需要切换到某个 Feat
 
 # 修改的热加载
 
-笔者在 React 开发中使用 HOT Reload 是个很不错的体验，而在 Android 开发中，即使是一个很小的 Android 项目，也需要等待不少的时间来等待修改之后的代码重新构建与部署，更何况对于那些有成百上千个类与 XML 布局文件的项目。另一方面，你也需要在你的应用中跳转选择到合适的页面来查看你做的更改的实际效果。2015 年底，Android 社区逐步使用两个工具来加速代码更改的加载速度，首先是[JRebel](https://zeroturnaround.com/software/jrebel-for-android/)，源于 Java 在服务端开发中的长期实践。另一个是 Google 团队随着 Android Studio 2.0 一起推出的工具：[Instant Run](https://developer.android.com/studio/run/index.html#instant-run)。两个工具的目标差不多，不过 JRebel 包含更多的特性，但是它也需要付费。作者编辑了一个简单的表单来描述二者的特性对比 :
+笔者在 React 开发中使用 HOT Reload 是个很不错的体验，而在 Android 开发中，即使是一个很小的 Android 项目，也需要等待不少的时间来等待修改之后的代码重新构建与部署，更何况对于那些有成百上千个类与 XML 布局文件的项目。另一方面，你也需要在你的应用中跳转选择到合适的页面来查看你做的更改的实际效果。2015 年底，Android 社区逐步使用两个工具来加速代码更改的加载速度，首先是[JRebel](https://zeroturnaround.com/software/jrebel-for-android/)，源于 Java 在服务端开发中的长期实践。另一个是 Google 团队随着 Android Studio 2.0 一起推出的工具：[Instant Run](https://developer.android.com/studio/run/index.html#instant-run)。两个工具的目标差不多，不过 JRebel 包含更多的特性，但是它也需要付费。作者编辑了一个简单的表单来描述二者的特性对比
 
 - https://developer.android.com/studio/run/index.html#instant-run
 - Reto Meier: “Instant Run: How Does it Work?!”
@@ -35,14 +35,14 @@ Code Review 是项目开发中的常见操作，我们需要切换到某个 Feat
 
 # 性能分析与执行效率估测
 
-另一个应用调试与性能分析中常需的用户特性是对于方法的输入输出与执行时间的日志记录，作者在这方面是使用了 Jake Wharton 开源的[Hugo](https://github.com/JakeWharton/hugo)，这个工具在你不希望使用复杂的譬如 Systrace 工具的时候很有帮助。譬如我们会希望监测如下的目标方法 :
+另一个应用调试与性能分析中常需的用户特性是对于方法的输入输出与执行时间的日志记录，作者在这方面是使用了 Jake Wharton 开源的[Hugo](https://github.com/JakeWharton/hugo)，这个工具在你不希望使用复杂的譬如 Systrace 工具的时候很有帮助。譬如我们会希望监测如下的目标方法
 
 ```
 @DebugLog
 public String getName(String first, String last) {/* ... */}
 ```
 
-然后在控制台中我们可以看到如下的信息 :
+然后在控制台中我们可以看到如下的信息
 
 ```
 V/Example: --> getName(first="Jake", last="Wharton")
@@ -51,25 +51,25 @@ V/Example: <-- getName [16ms] = "Jake Wharton"
 
 # 读取设备中的日志输出
 
-我们在开发过程中经常会使用 Android Studio 内置的 Android Monitor 来读取日志信息，这种方式确实很简单易用，不过也有很大的缺陷 :
+我们在开发过程中经常会使用 Android Studio 内置的 Android Monitor 来读取日志信息，这种方式确实很简单易用，不过也有很大的缺陷
 
 - 我们必须使用额外的工具来对日志记录进行格式化
 - Android Studio 的调试工具是附着到应用的进程 ID 上，一旦我们重新部署应用或者杀掉了进程，之前打印出来的日志就会被覆盖掉
 
-作者在这里推荐的是 Jake Wharton 开源的另一款工具[Pidcat](https://github.com/JakeWharton/pidcat)，其优势在于 :
+作者在这里推荐的是 Jake Wharton 开源的另一款工具[Pidcat](https://github.com/JakeWharton/pidcat)，其优势在于
 
 - 更友好的配色与格式化
 - 根据包名来获取调试信息，即使重新部署应用也不会删除之前的日志记录
 
 # 网络调试与分析
 
-应用开发中我们也常常需要通过查看 HTTPClient 库的日志记录来读取客户端与服务端的交互信息，不过这种方法往往会有如下的一些缺陷 :
+应用开发中我们也常常需要通过查看 HTTPClient 库的日志记录来读取客户端与服务端的交互信息，不过这种方法往往会有如下的一些缺陷
 
 - 如果你在开发过程中全程保持网络的日志输出，会大大影响应用的运行性能，毕竟需要一些时间来输出日志
 - 如果你的应用使用的其他依赖库需要进行网络通信，譬如 Google Analytics 这样的分析工具，我们需要进行额外的配置来过滤掉这些扰乱的信息
 - 在生产环境下无法监测到网络通信信息
 
-这边作者首先建议的方法是使用类似于[Charles Proxy](https://www.charlesproxy.com/)这样的 HTTP 监测与代理工具，它可以将你的应用当成黑箱对待，并且提供了以下功能 :
+这边作者首先建议的方法是使用类似于[Charles Proxy](https://www.charlesproxy.com/)这样的 HTTP 监测与代理工具，它可以将你的应用当成黑箱对待，并且提供了以下功能
 
 - HTTP/HTTPS 的流量监控与记录
 - 重定义某些特定情况下的服务端返回信息
@@ -88,7 +88,7 @@ V/Example: <-- getName [16ms] = "Jake Wharton"
 
 # build.gradle 配置检测
 
-即使是有经验的开发者也往往会使用些过时的配置方案，作者建议根据如下顺序来检查下你的 build.gradle 配置 :
+即使是有经验的开发者也往往会使用些过时的配置方案，作者建议根据如下顺序来检查下你的 build.gradle 配置
 
 - 使用 jcenter 来替换 mavenCentral，jcenter 的响应速度比 mavenCentral 好。
 - 检测 _Android Plugin for Gradle_ 的版本号，使用最新版本的依赖有助于提高编译速度。
