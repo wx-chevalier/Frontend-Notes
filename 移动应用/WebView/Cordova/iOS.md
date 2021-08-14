@@ -51,7 +51,7 @@ pod 'Cordova', '~> 4.0.1' # 支持Cordova WebView容器
 </widget>
 ```
 
-(3)添加 www 文件夹一般来说会把静态资源文件放置到 www 目录下，这边有一个小点需要注意下(不知道是不是笔者搞错了)，就是将 www 文件夹引入到 XCode 中的时候，注意不要选择 Copy 而是 File Reference，即最终的文件夹应该是如下图所示的蓝色而不是黄色。![](http://7xkt0f.com1.z0.glb.clouddn.com/861EEF1C-ADAE-40D3-AB56-EBD0AB4A13DB.png)
+(3)添加 www 文件夹一般来说会把静态资源文件放置到 www 目录下，这边有一个小点需要注意下(不知道是不是笔者搞错了)，就是将 www 文件夹引入到 XCode 中的时候，注意不要选择 Copy 而是 File Reference，即最终的文件夹应该是如下图所示的蓝色而不是黄色。
 
 ### Network Configuration
 
