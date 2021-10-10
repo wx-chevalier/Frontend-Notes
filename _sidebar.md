@@ -54,13 +54,12 @@
       - [5.4.2 Ionic](/移动应用/WebView/Ionic/README.md)
         
     - [5.5 iOS](/移动应用/iOS/README.md)
-      - 5.5.1 Objective C
-        - [5.5.1.1 语法基础](/移动应用/iOS/Objective-C/语法基础.md)
-      - 5.5.2 Swift
-        - [5.5.2.1 Linkedin 样式指南](/移动应用/iOS/Swift/Linkedin%20样式指南.md)
-      - 5.5.3 导论
-        - [5.5.3.1 AppStote](/移动应用/iOS/导论/AppStote.md)
-        - [5.5.3.2 概述](/移动应用/iOS/导论/概述.md)
+      - [5.5.1 AppStore](/移动应用/iOS/AppStore/README.md)
+        
+      - 5.5.2 Objective C
+        - [5.5.2.1 语法基础](/移动应用/iOS/Objective-C/语法基础.md)
+      - 5.5.3 Swift
+        - [5.5.3.1 Linkedin 样式指南](/移动应用/iOS/Swift/Linkedin%20样式指南.md)
       - 5.5.4 界面开发
         - [5.5.4.1 TableGrid](/移动应用/iOS/界面开发/TableGrid.md)
         - [5.5.4.2 UITableView](/移动应用/iOS/界面开发/UITableView.md)
