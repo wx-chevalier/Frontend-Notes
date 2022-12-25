@@ -148,8 +148,6 @@ Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
 
 提供了对于 Toolbar 的又一层包裹，可以用作视差滚动等效果。
 
-![](http://img0.tuicool.com/m6bqA3.gif)
-
 当向下滚动时 ,Banner 大图会跟随滚动手势而 Collapse. 最后收折成一个普通的 ActionBar( 实际是个 Toolbar,Android 官方在最新的 Support Library 都推荐把 ActionBar 替换成 Toolbar).
 
 通过属性 Flag 的组合, 也能实现把 ActionBar 直接推出屏幕, 让其消失 .
