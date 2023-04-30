@@ -8,7 +8,7 @@ React Native 并没有直接将 JS 代码编译到相应的本机代码中，因
 
 React Native 的 iOS 与 Android 版本的架构大同小异，可以认为大体包含以下三个模块：Native Code/Modules, JavaScript VM, Bridge。
 
-![image.png](https://i.postimg.cc/6q2TyxV7/image.png)
+![image.png](https://assets.ng-tech.icu/item/20230430223016.png)
 
 ## Native Code/Modules
 
