@@ -26,11 +26,11 @@ React Native 的 iOS 与 Android 版本的架构大同小异，可以认为大�
 
 Javascript Queue 是主捆绑 JS 线程运行的线程队列。JS 线程运行所有业务逻辑。
 
-![image.png](https://i.postimg.cc/50j2RWRP/image.png)
+![image.png](https://assets.ng-tech.icu/item/20230516214652.png)
 
 ## Bridge
 
-![image.png](https://i.postimg.cc/VspRfjX6/image.png)
+![image.png](https://assets.ng-tech.icu/item/20230516214710.png)
 
 Bridge 的作用就是给 RN 内嵌的 JS Engine 提供原生接口的扩展供 JS 调用。所有的本地存储、图片资源访问、图形图像绘制、3D 加速、网络访问、震动效果、NFC、原生控件绘制、地图、定位、通知等都是通过 Bridge 封装成 JS 接口以后注入 JS Engine 供 JS 调用。理论上，任何原生代码能实现的效果都可以通过 Bridge 封装成 JS 可以调用的组件和方法, 以 JS 模块的形式提供给 RN 使用。
 
