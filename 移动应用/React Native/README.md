@@ -272,7 +272,7 @@ describe("a silly test", function () {
 
 ```js
 **
- * Taken from https://github.com/facebook/react-native/blob/master/Examples/Movies/__tests__/getImageSource-test.js
+ - Taken from https://github.com/facebook/react-native/blob/master/Examples/Movies/__tests__/getImageSource-test.js
  */
 
 'use strict';

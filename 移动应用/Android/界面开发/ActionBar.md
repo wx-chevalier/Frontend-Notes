@@ -100,7 +100,6 @@ Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
                 public boolean onQueryTextChange(String newText)
                 {
 
-
                     Log.i("onQueryTextChange", newText);
 
                     return true;
@@ -317,7 +316,6 @@ AppBarLayout 往往跟 CoordinatorLayout 合作，可以实现视差滚动的效
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -336,7 +334,6 @@ AppBarLayout 往往跟 CoordinatorLayout 合作，可以实现视差滚动的效
         android:layout_height="wrap_content"
         app:tabGravity="fill" />
 
-
     </android.support.design.widget.AppBarLayout>
 
     <!--可滑动的布局内容-->
@@ -351,7 +348,6 @@ AppBarLayout 往往跟 CoordinatorLayout 合作，可以实现视差滚动的效
         android:layout_height="wrap_content"
         android:src="@drawable/ic_discuss"
         android:layout_gravity="bottom|end"/>
-
 
 </android.support.design.widget.CoordinatorLayout>
 ```
